@@ -1,6 +1,6 @@
 # Rime auto deploy
 
-⚠️ 仅适用MacOS下测试
+⚠️ 仅适用 MacOS
 
 ![rime](./images/rime.jpeg)
 ![result](./images/result.png)
