@@ -23,3 +23,8 @@ step2: 执行部署脚本
 ## step3: 自动安装 Rime-ice 配置
 
 ## step4: 自动追加自定义配置模板
+
+
+### 参考：
+
+流程参考 Tiwtter： @lewangdev
