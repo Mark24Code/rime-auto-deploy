@@ -1,6 +1,15 @@
 # Rime auto deploy
 
-仅在MacOS下测试
+⚠️ 仅适用MacOS下测试
+
+![rime](./images/rime.jpeg)
+![result](./images/result.png)
+
+### 参考&感谢：
+
+* 流程参考 Tiwtter： @lewangdev
+* 配置来源(fork了一版本）：https://github.com/iDvel/rime-ice
+
 
 # 使用方法
 
@@ -25,6 +34,3 @@ step2: 执行部署脚本
 ## step4: 自动追加自定义配置模板
 
 
-### 参考：
-
-流程参考 Tiwtter： @lewangdev
