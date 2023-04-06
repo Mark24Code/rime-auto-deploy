@@ -2,6 +2,16 @@
 
 仅在MacOS下测试
 
+# 使用方法
+
+step1: 克隆到本地
+
+`git clone https://github.com/Mark24Code/rime-auto-deploy.git`
+
+step2: 执行部署脚本
+
+`./deploy.rb`
+
 # 自动部署内容：
 
 ## step1: 确认安装 Rime 输入法，自动安装
