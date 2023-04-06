@@ -34,5 +34,5 @@ else
   puts "done ✅"
   puts ""
   puts "Deploy finised"
-  puts "Please open Rime setting pane and click `redeploy`. Enjoy~ 🍻"
+  puts "Please open Rime setting pane and click `Deploy`. Enjoy~ 🍻"
 end
