@@ -25,13 +25,12 @@ class String
 end
 
 class Job
-  attr_accessor :status
+  attr_accessor :status, :intro
   def initialize
     @status = :waiting # :processing, :done, :fail
+    @intro = self.class.to_s.sub(/Job$/, "")
   end
-  def intro
-    self.class.to_s
-  end
+
   def call
   end
 
