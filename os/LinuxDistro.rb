@@ -11,7 +11,8 @@ module RimeDeploy
 
     class CheckInstallRimeJob < Job
       def call
-        puts @title
+        puts "==== Rime auto deploy ====".green
+        puts "Before Check Rime Installed Staus".yellow
         tips = <<-TIP
 Different Linux has it's own package manager. So make sure you had installed Rime before.
 
