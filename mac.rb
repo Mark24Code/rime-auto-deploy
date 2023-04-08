@@ -20,15 +20,22 @@ module FontStylePatch
   end
 end
 
+module StringPatch
+  def nature_case
+    self.gsub(/(.)([A-Z])/, '\1 \2').downcase.capitalize
+  end
+end
+
 class String
   include FontStylePatch
+  include StringPatch
 end
 
 class Job
   attr_accessor :status, :intro
   def initialize
-    @status = :waiting # :processing, :done, :fail
-    @intro = self.class.to_s.sub(/Job$/, "")
+    @status = :waiting # :waiting, :processing, :done, :fail
+    @intro = self.class.to_s.sub(/Job$/, "").nature_case
   end
 
   def call
@@ -36,18 +43,6 @@ class Job
 
   def rollback
   end
-
-  # def highlight(text)
-  #   puts text.green
-  # end
-
-  # def info(text)
-  #   puts text.blue
-  # end
-
-  # def status(text)
-  #   puts text.yellow
-  # end
 end
 
 class InstallRimeJob < Job
