@@ -11,8 +11,7 @@ module RimeDeploy
 
     class CheckInstallRimeJob < Job
       def call
-        puts intro
-        puts "Different Linux has it's own package manager. So make sure you had installed Rime before."
+        puts @title
         tips = <<-TIP
 Different Linux has it's own package manager. So make sure you had installed Rime before.
 
