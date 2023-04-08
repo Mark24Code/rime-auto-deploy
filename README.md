@@ -17,9 +17,10 @@
 安装 `Ruby 3`
 
 * Mac OS `brew install ruby`
-* Debian distro `sudo apt install ruby`
+* Debian Linux distro `sudo apt install ruby`
+* 其他 Linux 根据自己情况判断。有些 Linux 可能自带 Ruby
 
-⚠️ MacOS脚本会自动帮助安装 Rime，Linux下由于发行版、Rime衍生方式太多，需要自行提前安装Rime。
+⚠️ MacOS脚本会自动帮助安装 Rime，Linux下由于发行版、Rime 衍生方式太多，需要自行提前安装 Rime。
 
 ```
 For Fcitx5, install fcitx5-rime.
@@ -29,17 +30,11 @@ For IBus, install ibus-rime.
 more: https://wiki.archlinux.org/title/Rime
 ```
 
-### 参考&感谢：
-
-* 流程参考 Tiwtter： @lewangdev
-* 配置来源(fork了一版本）：https://github.com/iDvel/rime-ice
-
-
 # 使用方法
 
 step1: 克隆到本地
 
-`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v2.0.0`
+`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v2.0.1`
 
 step2: 执行部署脚本
 
@@ -58,3 +53,7 @@ step2: 执行部署脚本
 ## step4: 自动追加自定义配置模板
 
 
+### 参考&感谢：
+
+* 流程参考 Tiwtter： @lewangdev
+* 配置来源：https://github.com/iDvel/rime-ice
