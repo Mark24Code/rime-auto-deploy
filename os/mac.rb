@@ -13,6 +13,7 @@ module RimeDeploy
       def call
         puts "Job: BackupRimeConfigJob".blue
         sleep 1
+        raise RimeDeployError
         # system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
         return :next
       end
@@ -33,6 +34,7 @@ module RimeDeploy
       def call
         puts "Job: CopyCustomConfigJob".blue
         sleep 1
+
         # system("cp ./default.custom.yaml ~/Library/Rime/")
         # system("cp ./squirrel.custom.yaml ~/Library/Rime/")
         return :next

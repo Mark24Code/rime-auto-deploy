@@ -46,7 +46,7 @@ module RimeDeploy
         @items.each_with_index do |item, index|
           puts "[#{index + 1}] " + item[0]
         end
-        puts "Tips: input the index. e.g: 01"
+        puts "Tips: input the index. e.g: 1"
         puts "Message: #{message}".red if message
         print ">>".green
         choose_mode = gets
@@ -80,7 +80,7 @@ module RimeDeploy
 
   class JobGroup
     def initialize(jobs)
-      @title = "=== Rime Deploy ===="
+      @title = "=== Rime Deploy ====".green
       @queue = []
       jobs.each { |job| @queue << job.new }
 
@@ -107,7 +107,7 @@ module RimeDeploy
       end
 
       if @current_index < @queue.length
-        puts "total: #{@queue.length}".ljust(10)
+        puts "Total: #{@queue.length}".ljust(10)
         puts "Detail " + "-" * 20
       end
     end
@@ -121,15 +121,18 @@ module RimeDeploy
           @current_index += 1
         else
           # 失败处理
+          current_job.rollback if current_job.respond_to? :rollback
           raise RimeDeployError
         end
         print_progress
       rescue RimeDeployError
-        run_jobs_handle
+        what_next
       end
     end
 
     def guidance
+      puts @title
+      puts "welcome to use Rime installer."
       ChooseSession.new(
         [
           [
@@ -148,6 +151,8 @@ module RimeDeploy
     end
 
     def run_jobs_handle
+      system("clear")
+      puts "[Handle Mode]".yellow
       handle_jobs = []
       @queue.each_with_index do |job, index|
         job_intro = job.intro.to_s.ljust(20).green
@@ -155,10 +160,17 @@ module RimeDeploy
           ["#{job_intro}", -> { run_job_with_info_wrapper(job) }]
         )
       end
-      ChooseSession.new(handle_jobs).call
+      begin
+        ChooseSession.new(handle_jobs).call
+        return
+      rescue RimeDeployError
+        what_next
+      end
     end
 
     def run_jobs_auto
+      system("clear")
+      puts "[Auto Mode]".green
       print_progress
       while @current_index < @queue.length
         current_job = @queue[@current_index]
@@ -175,9 +187,25 @@ module RimeDeploy
           end
           print_progress
         rescue RimeDeployError
-          run_jobs_handle
+          what_next
         end
       end
+    end
+
+    def reset_status
+      @queue.each { |q| q.status = :waiting }
+    end
+
+    def what_next
+      puts ""
+      puts "Raise an error. Next, you want to...".red
+      ChooseSession.new(
+        [
+          ["Retry", -> {}],
+          ["Change to: Handle mode", -> { run_jobs_handle }],
+          ["Exit", -> { exit 0 }]
+        ]
+      ).call
     end
   end
 end
