@@ -25,7 +25,7 @@ module RimeDeploy
       def call
         puts intro
         system(
-          "git clone #{Config::RIME_CONFIG_REPO} #{Config::DebianLinux::ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Config::DebianLinux::ConfigPath}"
         )
         sleep 1
         return :next

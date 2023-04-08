@@ -24,7 +24,7 @@ module RimeDeploy
       def call
         puts intro
         system(
-          "git clone #{Config::RIME_CONFIG_REPO} #{Config::MacOS::ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Config::MacOS::ConfigPath}"
         )
         sleep 1
         return :next
