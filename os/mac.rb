@@ -23,9 +23,7 @@ module RimeDeploy
     class CloneConfigJob < Job
       def call
         puts intro
-        system(
-          "git clone https://github.com/iDvel/rime-ice.git #{OSConfig::Mac::ConfigPath}"
-        )
+        system("git clone #{RIME_CONFIG_REPO} #{OSConfig::Mac::ConfigPath}")
         sleep 1
         return :next
       end

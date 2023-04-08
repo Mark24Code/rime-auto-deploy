@@ -1,4 +1,5 @@
 module RimeDeploy
+  RIME_CONFIG_REPO = "https://github.com/iDvel/rime-ice.git"
   module OSConfig
     module Mac
       InstallCmd = "brew install --cask squirrel"

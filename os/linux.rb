@@ -1,10 +1,10 @@
 module RimeDeploy
-  module Mac
+  module Linux
     class InstallRimeJob < Job
       def call
-        puts "Job: InstallRimeJob".blue
+        puts intro
+        system(OSConfig::Linux::InstallCmd)
         sleep 1
-        # system("brew install --cask squirrel")
         return :next
       end
     end
@@ -12,29 +12,47 @@ module RimeDeploy
     class BackupRimeConfigJob < Job
       def call
         puts "Job: BackupRimeConfigJob".blue
+        system(
+          "mv #{OSConfig::Linux::ConfigPath} #{OSConfig::Linux::ConfigPath}.#{Time.now.to_i}.old"
+        )
         sleep 1
-        # system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
         return :next
       end
     end
 
     class CloneConfigJob < Job
       def call
-        puts "Job: CloneConfigJob".blue
+        puts intro
+        system("git clone #{RIME_CONFIG_REPO} #{OSConfig::Linux::ConfigPath}")
         sleep 1
-        # system(
-        #   "git clone --depth=1 https://github.com/Mark24Code/rime-ice.git ~/Library/Rime"
-        # )
         return :next
       end
     end
 
     class CopyCustomConfigJob < Job
       def call
-        puts "Job: CopyCustomConfigJob".blue
+        puts intro
+        system(
+          "cp ./custom/default.custom.yaml #{OSConfig::Linux::ConfigPath}/"
+        )
+        system(
+          "cp ./custom/squirrel.custom.yaml #{OSConfig::Linux::ConfigPath}/"
+        )
         sleep 1
-        # system("cp ./default.custom.yaml ~/Library/Rime/")
-        # system("cp ./squirrel.custom.yaml ~/Library/Rime/")
+        return :next
+      end
+    end
+
+    class FinishedJob < Job
+      def call
+        puts ""
+        puts "Tips: When finished all jobs. You need to do follow:".yellow
+        puts "1) Restart system."
+        puts "2) open Rime input method setting pane and click " +
+               "DEPLOY".yellow + " button."
+        puts "Enjoy~ 🍻"
+        puts "more info:".yellow
+        puts "Config path: #{OSConfig::Linux::ConfigPath}/"
         return :next
       end
     end
@@ -45,5 +63,7 @@ module RimeDeploy
       CloneConfigJob,
       CopyCustomConfigJob
     ]
+
+    FinishedHook = [FinishedJob]
   end
 end
