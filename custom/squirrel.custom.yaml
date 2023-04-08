@@ -14,7 +14,7 @@ patch:
     #com.jetbrains.intellij:
     #  ascii_mode: true
     #  vim_mode: true
-  
+
   style:
     # 选择皮肤，亮色与暗色主题
     # color_scheme: purity_of_form_custom
@@ -23,7 +23,7 @@ patch:
     # color_scheme_dark: macos_dark
     color_scheme: wechat_light
     color_scheme_dark: wechat_dark
-  
+
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal  # horizontal | vertical
     inline_preedit: true
@@ -41,7 +41,7 @@ patch:
     label_font_point: 18
     #comment_font_face: 'Lucida Grande'
     comment_font_point: 18
-  
+
   # 皮肤列表
   preset_color_schemes:
     macos_light:
@@ -84,7 +84,7 @@ patch:
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
       border_color: 0xFFFFFF                  # 外边框颜色
-  
+
     macos_dark:
       name: "MacOS 深色／MacOS Dark"
       author: 小码哥
@@ -125,7 +125,7 @@ patch:
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
       border_color: 0x050505                  # 外边框颜色
-  
+
     wechat_light:
       name: "微信浅色／Wechat Light"
       author: 小码哥
@@ -166,7 +166,7 @@ patch:
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
       border_color: 0xFFFFFF                  # 外边框颜色
-  
+
     wechat_dark:
       name: "微信深色／Wechat Dark"
       author: 小码哥
@@ -207,5 +207,305 @@ patch:
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
       border_color: 0x292929                  # 外边框颜色
-    
-    
+
+    # https://ssnhd.com/2022/01/11/rime-skin/
+    mac_green:
+      name: Mac绿色
+      horizontal: true             # true横排，false竖排
+      candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      hilited_corner_radius: 5                     # 高亮圆角
+      line_spacing: 10                             # 行间距(适用于竖排)
+      border_height: 4                             # 窗口上下高度，大于圆角半径才生效
+      border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
+      font_face: "PingFangSC"                      # 候选词字体
+      font_point: 16                               # 候选字大小
+      label_font_point: 13                         # 候选编号大小
+      text_color: 0x424242                    # 拼音行文字颜色
+      back_color: 0xFFFFFF                    # 候选条背景色
+      border_color: 0xFFFFFF                  # 边框色
+      label_color: 0x999999                   # 预选栏编号颜色
+      candidate_text_color: 0x3c3c3c          # 预选项文字颜色
+      comment_text_color: 0x999999            # 拼音等提示文字颜色
+      hilited_text_color: 0x999999            # 高亮拼音 (需要开启内嵌编码)
+      hilited_candidate_back_color: 0x32A14C  # 第一候选项背景色
+      hilited_candidate_text_color: 0xFFFFFF  # 第一候选项文字颜色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
+      hilited_comment_text_color: 0x999999    # 注解文字高亮
+
+    mac_orange:
+      name: Mac橙色
+      horizontal: true             # true横排，false竖排
+      candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      hilited_corner_radius: 5                     # 高亮圆角
+      line_spacing: 10                             # 行间距(适用于竖排)
+      border_height: 4                             # 窗口上下高度，大于圆角半径才生效
+      border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
+      font_face: "PingFangSC"                      # 候选词字体
+      font_point: 16                               # 候选字大小
+      label_font_point: 13                         # 候选编号大小
+      text_color: 0x424242                    # 拼音行文字颜色
+      back_color: 0xFFFFFF                    # 候选条背景色
+      border_color: 0xFFFFFF                  # 边框色
+      label_color: 0x999999                   # 预选栏编号颜色
+      candidate_text_color: 0x3c3c3c          # 预选项文字颜色
+      comment_text_color: 0x999999            # 拼音等提示文字颜色
+      hilited_text_color: 0x999999            # 高亮拼音 (需要开启内嵌编码)
+      hilited_candidate_back_color: 0x0E6BD8  # 第一候选项背景色
+      hilited_candidate_text_color: 0xFFFFFF  # 第一候选项文字颜色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
+      hilited_comment_text_color: 0x999999    # 注解文字高亮
+
+    mac_blue:
+      name: Mac浅蓝
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      font_face: "PingFangSC"                      # 候选词字体
+      font_point: 16                               # 候选字大小
+      label_font_point: 13                         # 候选编号大小
+      line_spacing: 10                             # 行间距(适用于竖排)
+      text_color: 0x424242                    # 拼音行文字颜色
+      back_color: 0xFFFFFF                    # 候选条背景色
+      border_color: 0xFFFFFF                  # 边框色
+      label_color: 0x999999                   # 预选栏编号颜色
+      candidate_text_color: 0x3c3c3c          # 预选项文字颜色
+      comment_text_color: 0x999999            # 拼音等提示文字颜色
+      hilited_text_color: 0x999999            # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0xF8AA4D            # 第一候选项背景背景色
+      hilited_candidate_text_color: 0xFFFFFF  # 第一候选项文字颜色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
+      hilited_comment_text_color: 0x999999    # 注解文字高亮
+
+    psionics:
+      name: 幽能
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      font_point: 16                               # 候选文字大小
+      label_font_point: 14                         # 候选编号大小
+      font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
+      line_spacing: 10                             # 行间距(适用于竖排)
+      text_color: 0xc2c2c2                     # 拼音行文字颜色
+      back_color: 0x444444                     # 候选条背景色，24位色值，16进制，BGR顺序
+      candidate_text_color: 0xeeeeee           # 预选项文字颜色
+      hilited_candidate_back_color: 0xd4bc00   # 候选文字背景色
+      comment_text_color: 0x808080             # 拼音等提示文字颜色
+      hilited_text_color: 0xeeeeee             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x444444             # 第一候选项背景背景色
+      hilited_candidate_label_color: 0xfafafa  # 第一候选项编号颜色
+      hilited_candidate_text_color: 0xfafafa   # 第一候选项文字颜色
+      hilited_comment_text_color: 0x444444     # 注解文字高亮
+
+    win10:
+      horizontal: true                  # true横排，false竖排
+      candidate_format: "%c %@  "       # 如果是竖排建议改为 "%c\u2005%@"
+      font_point: 17              # 候选文字大小
+      label_font_point: 16        # 候选编号大小
+      corner_radius: 0            # 候选条圆角
+      border_width: 6             # 窗口左右宽度
+      border_height: 6            # 窗口左右高度
+      margin_x: 12                # 字起始距左边距离
+      margin_y: 12                # 字上下边距
+      spacing: 10                 # 间距
+      candidate_spacing: 24       # 候选字间隔
+      line_spacing: 10            # 行间距(适用于竖排)
+      hilite_spacing: 8           # 序号和候选字之间的间隔
+      hilite_padding: 12          # 候选字背景色色块高度 若想候选字背景色块无边界填充候选框，仅需其高度和候选字上下边距一致即可
+      round_corner: 0             # 候选字背景色块圆角幅度
+      candidate_text_color: 0x000000          # 预选项文字颜色
+      comment_text_color: 0x888888            # 拼音等提示文字颜色
+      text_color: 0x000000                    # 拼音行文字颜色
+      back_color: 0xffffff                    # 候选条背景色，24位色值，16进制，BGR顺序
+      hilited_text_color: 0x000000            # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0xffffff            # 第一候选项背景背景色
+      hilited_candidate_text_color: 0xffffff  # 第一候选项文字颜色
+      hilited_candidate_back_color: 0xcc8f29  # 候选文字背景色
+      hilited_comment_text_color: 0xffffff    # 注解文字高亮
+      hilited_label_color: 0xffffff           # 已选字的数字的颜色
+      label_color: 0x888888                   # 预选栏编号颜色
+
+    solarized_rock:
+      name: 日光石
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 6                             # 窗口圆角
+      font_point: 16                               # 候选文字大小
+      label_font_point: 15                         # 候选编号大小
+      line_spacing: 10                             # 行间距(适用于竖排)
+      font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
+      text_color: 0x8236d3                     # 拼音行文字颜色
+      back_color: 0x362b00                     # 候选条背景色，24位色值，16进制，BGR顺序
+      candidate_text_color: 0x969483           # 预选项文字颜色
+      comment_text_color: 0xc098a12a           # 拼音等提示文字颜色
+      hilited_text_color: 0x98a12a             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x444444             # 第一候选项背景背景色
+      hilited_candidate_label_color: 0xfafafa  # 第一候选项编号颜色
+      hilited_candidate_back_color: 0x8236d3   # 候选文字背景色
+      hilited_candidate_text_color: 0xffffff   # 第一候选项文字颜色
+      hilited_comment_text_color: 0x362b00     # 注解文字高亮
+
+    solarized_dark:
+      name: 夜光石
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 6                             # 窗口圆角
+      font_point: 16                               # 候选文字大小
+      label_font_point: 15                         # 候选编号大小
+      line_spacing: 10                             # 行间距(适用于竖排)
+      font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
+      text_color: 0xA1A095                     # 拼音行文字颜色
+      border_color: 0xf02A1F00                 # 边框颜色
+      label_color: 0xCC8947                    # 预选栏编号颜色
+      back_color: 0xf0352A0A                   # 候选条背景色，24位色值，16进制，BGR顺序
+      candidate_text_color: 0x989F52           # 预选项文字颜色
+      comment_text_color: 0x289989           # 拼音等提示文字颜色
+      hilited_text_color: 0x2C8BAE             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x444444             # 第一候选项背景背景色
+      hilited_candidate_label_color: 0x2566C6  # 第一候选项编号颜色
+      hilited_candidate_back_color: 0xD7E8ED   # 候选文字背景色
+      hilited_candidate_text_color: 0x3942CB   # 第一候选项文字颜色
+      hilited_comment_text_color: 0x8144C2     # 注解文字高亮
+
+    apathy:
+      name: 冷漠
+      horizontal: true              # true横排，false竖排
+      back_color: 0xFFFFFF           # 候选条背景色，24位色值，16进制，BGR顺序
+      border_height: 0               # 窗口上下高度，大于圆角半径才生效
+      border_width: 8                # 窗口左右宽度
+      line_spacing: 10               # 行间距(适用于竖排)
+      candidate_format: "%c %@ "     # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      comment_text_color: 0x999999              # 拼音等提示文字颜色
+      corner_radius: 5                          # 窗口圆角
+      font_point: 17                            # 候选文字大小
+      hilited_candidate_back_color: 0xFFF0E4    # 候选文字背景色
+      hilited_candidate_text_color: 0xEE6E00    # 第一候选项文字颜色
+      inline_preedit: true
+      label_font_point: 12           # 候选编号大小
+      text_color: 0x424242           # 拼音行文字颜色
+
+    google:
+      name: 谷歌
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 15                     # 候选编号大小
+      corner_radius: 6                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      text_color: 0x666666                     # 拼音行文字颜色
+      candidate_text_color: 0x000000           # 预选项文字颜色
+      back_color: 0xFFFFFF                     # 候选条背景色，24位色值，16进制，BGR顺序
+      border_color: 0xE2E2E2                   # 边框
+      hilited_text_color: 0x000000             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0xFFFFFF             # 第一候选项背景背景色
+      hilited_candidate_text_color: 0xffffff   # 第一候选项文字颜色
+      hilited_candidate_back_color: 0xCE7539   # 候选文字背景色
+      comment_text_color: 0x6D6D6D             # 拼音等提示文字颜色
+      hilited_comment_text_color: 0xEBC6B0     # 注解文字高亮
+      hilited_candidate_label_color: 0xfafafa  # 第一候选项编号颜色
+
+    milan:
+      name: 米兰
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      line_spacing: 10                         # 行间距(适用于竖排)
+      border_height: 4                             # 窗口上下高度，大于圆角半径才生效
+      border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
+      corner_radius: 5                         # 窗口圆角
+      back_color: 0xFFFFFF                     # 候选条背景色
+      comment_text_color: 0x999999             # 拼音等提示文字颜色
+      hilited_candidate_back_color: 0xF5803B   # 候选文字背景色
+      hilited_candidate_text_color: 0xFFFFFF   # 第一候选项文字颜色
+      text_color: 0x424242                     # 拼音行文字颜色
+
+    ink:
+      name: 墨池
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      corner_radius: 5                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      text_color: 0x5a5a5a                     # 拼音等提示文字颜色
+      back_color: 0xeeffffff                   # 候选条背景色
+      candidate_text_color: 0x000000           # 第一候选项文字颜色
+      hilited_text_color: 0x000000             # 高亮拼音 (需要开启内嵌编码)
+      hilited_candidate_text_color: 0xffffff   # 第一候选项文字颜色
+      hilited_candidate_back_color: 0xcc000000 # 候选文字背景色
+      comment_text_color: 0x5a5a5a             # 拼音等提示文字颜色
+      hilited_comment_text_color: 0x808080     # 注解文字高亮
+
+    purity:
+      name: 纯洁
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      corner_radius: 5                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      text_color: 0xc2c2c2                     # 拼音等提示文字颜色
+      back_color: 0x444444                     # 候选条背景色
+      candidate_text_color: 0xeeeeee           # 第一候选项文字颜色
+      hilited_text_color: 0xeeeeee             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x444444             # 第一候选项背景背景色
+      hilited_candidate_text_color: 0x000000   # 第一候选项文字颜色
+      hilited_candidate_back_color: 0xfafafa   # 候选文字背景色
+      comment_text_color: 0x808080             # 拼音等提示文字颜色
+
+    starcraft:
+      name: 星际争霸
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      corner_radius: 5                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      text_color: 0xccaa88                     # 拼音等提示文字颜色
+      candidate_text_color: 0x30bb55           # 第一候选项文字颜色
+      back_color: 0xee000000                   # 候选条背景色
+      border_color: 0x1010a0                   # 边框色
+      hilited_text_color: 0xfecb96             # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x000000             # 第一候选项背景背景色
+      hilited_candidate_text_color: 0x70ffaf   # 第一候选项文字颜色
+      hilited_candidate_back_color: 0x000000   # 候选文字背景色
+      comment_text_color: 0x1010d0             # 拼音等提示文字颜色
+      hilited_comment_text_color: 0x1010f0     # 注解文字高亮
+
+    nord_light:
+      name: 北方浅色
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      corner_radius: 5                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      back_color: 0xF4EFEC                     # 候选条背景色
+      border_color: 0xF4EFEC                   # 边框色
+      candidate_text_color: 0xC1A181           # 第一候选项文字颜色
+      comment_text_color: 0xD0C088             # 拼音等提示文字颜色
+      hilited_back_color: 0xF0E9E5             # 第一候选项背景背景色
+      hilited_candidate_back_color: 0xE9DED8   # 候选文字背景色
+      hilited_candidate_text_color: 0xAC815E   # 第一候选项文字颜色
+      hilited_text_color: 0xAD8EB4             # 高亮拼音 (需要开启内嵌编码)
+      text_color: 0x7087D0                     # 拼音等提示文字颜色
+
+    nord_dark:
+      name: 北方深色
+      horizontal: true              # true横排，false竖排
+      candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      font_point: 16                           # 候选文字大小
+      label_font_point: 14                     # 候选编号大小
+      corner_radius: 5                         # 窗口圆角
+      line_spacing: 10                         # 行间距(适用于竖排)
+      back_color: 0x473A33                     # 候选条背景色
+      border_color: 0x473A33                   # 边框色
+      candidate_text_color: 0xF5D887           # 第一候选项文字颜色
+      comment_text_color: 0xE6B687             # 拼音等提示文字颜色
+      hilited_back_color: 0x473A33             # 第一候选项背景背景色
+      hilited_candidate_back_color: 0x5D4C43   # 候选文字背景色
+      hilited_candidate_text_color: 0xC0E077   # 第一候选项文字颜色
+      hilited_text_color: 0x6EC8F5             # 高亮拼音 (需要开启内嵌编码)
+      text_color: 0x78E8F0                     # 拼音等提示文字颜色
