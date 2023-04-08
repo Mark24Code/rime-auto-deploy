@@ -1,5 +1,5 @@
 module RimeDeploy
-  module LinuxDistro
+  class LinuxDistro
     def self.ConfigPath=(value)
       @@ConfigPath = value
     end
