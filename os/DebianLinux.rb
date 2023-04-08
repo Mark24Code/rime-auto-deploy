@@ -12,7 +12,7 @@ module RimeDeploy
 
     class BackupRimeConfigJob < Job
       def call
-        puts into
+        puts intro
         system(
           "mv #{Config::DebianLinux::ConfigPath} #{Config::DebianLinux::ConfigPath}.#{Time.now.to_i}.old"
         )
