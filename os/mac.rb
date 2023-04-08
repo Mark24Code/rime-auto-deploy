@@ -44,7 +44,8 @@ module RimeDeploy
       InstallRimeJob,
       BackupRimeConfigJob,
       CloneConfigJob,
-      CopyCustomConfigJob
+      CopyCustomConfigJob,
+      FinishedJob
     ]
   end
 end
