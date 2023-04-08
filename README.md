@@ -1,9 +1,5 @@
 # Rime auto deploy
 
-## 依赖
-
-* 安装 `Ruby3`
-
 ## 系统
 
 ⚠️ 支持：
@@ -16,6 +12,22 @@
 ![result](./images/result.png)
 ![working](./images/working.png)
 
+## 依赖
+
+安装 `Ruby 3`
+
+* Mac OS `brew install ruby`
+* Debian distro `sudo apt install ruby`
+
+⚠️ MacOS脚本会自动帮助安装 Rime，Linux下由于发行版、Rime衍生方式太多，需要自行提前安装Rime。
+
+```
+For Fcitx5, install fcitx5-rime.
+For Fcitx, install fcitx-rime.
+For IBus, install ibus-rime.
+
+more: https://wiki.archlinux.org/title/Rime
+```
 
 ### 参考&感谢：
 
