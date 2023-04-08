@@ -1,11 +1,12 @@
 module RimeDeploy
   class LinuxDistro
-    def self.ConfigPath=(value)
-      @@ConfigPath = value
+    @@config_path = nil
+    def self.config_path=(value)
+      @@config_path = value
     end
 
-    def self.ConfigPath
-      @@ConfigPath
+    def self.config_path
+      @@config_path
     end
 
     class CheckInstallRimeJob < Job
@@ -30,21 +31,21 @@ https://wiki.archlinux.org/title/Rime
             [
               "ibus-rime",
               -> do
-                LinuxDistro.ConfigPath =
+                LinuxDistro.config =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathIbus
               end
             ],
             [
               "fcitx-rime",
               -> do
-                LinuxDistro.ConfigPath =
+                LinuxDistro.config =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx
               end
             ],
             [
               "fcitx5-rime",
               -> do
-                LinuxDistro.ConfigPath =
+                LinuxDistro.config_path =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx5
               end
             ]
@@ -59,7 +60,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "mv #{LinuxDistro.ConfigPath} #{LinuxDistro.ConfigPath}.#{Time.now.to_i}.old"
+          "mv #{LinuxDistro.config_path} #{LinuxDistro.config_path}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -70,7 +71,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{LinuxDistro.ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{LinuxDistro.config_path}"
         )
         sleep 1
         return :next
@@ -80,8 +81,8 @@ https://wiki.archlinux.org/title/Rime
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./custom/default.custom.yaml #{LinuxDistro.ConfigPath}/")
-        system("cp ./custom/squirrel.custom.yaml #{LinuxDistro.ConfigPath}/")
+        system("cp ./custom/default.custom.yaml #{LinuxDistro.config_path}/")
+        system("cp ./custom/squirrel.custom.yaml #{LinuxDistro.config_path}/")
         sleep 1
         return :next
       end
@@ -96,7 +97,7 @@ https://wiki.archlinux.org/title/Rime
                "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: #{LinuxDistro.ConfigPath}/"
+        puts "Config path: #{LinuxDistro.config_path}/"
         return :next
       end
     end
