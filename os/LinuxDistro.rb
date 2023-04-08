@@ -1,11 +1,14 @@
 module RimeDeploy
   module LinuxDistro
+    def self.ConfigPath=(value)
+      @@ConfigPath = value
+    end
+
+    def self.ConfigPath
+      @@ConfigPath
+    end
+
     class InstallRimeJob < Job
-      def update_config_path(path)
-        module ::RimeDeploy::Config::LinuxDistro
-          alias ConfigPath path
-        end
-      end
       def call
         puts intro
         puts "Different Linux has it's own package manager. So make sure you had installed Rime before."
@@ -24,9 +27,27 @@ https://wiki.archlinux.org/title/Rime
         puts "Then choose what your had installed."
         ChooseSession.new(
           [
-            ["ibus-rime", -> { update_config_path(::RimeDeploy::Config::LinuxDistro::ConfigPathIbus) }],
-            ["fcitx-rime", -> { update_config_path(::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx) }],
-            ["fcitx5-rime", -> { update_config_path(::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx5) }],
+            [
+              "ibus-rime",
+              -> do
+                LinuxDistro.ConfigPath =
+                  ::RimeDeploy::Config::LinuxDistro::ConfigPathIbus
+              end
+            ],
+            [
+              "fcitx-rime",
+              -> do
+                LinuxDistro.ConfigPath =
+                  ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx
+              end
+            ],
+            [
+              "fcitx5-rime",
+              -> do
+                LinuxDistro.ConfigPath =
+                  ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx5
+              end
+            ]
           ]
         ).call
         sleep 1
@@ -38,7 +59,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "mv #{Config::LinuxDistro::ConfigPath} #{Config::LinuxDistro::ConfigPath}.#{Time.now.to_i}.old"
+          "mv #{LinuxDistro.ConfigPath} #{LinuxDistro.ConfigPath}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -49,7 +70,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Config::LinuxDistro::ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{LinuxDistro.ConfigPath}"
         )
         sleep 1
         return :next
@@ -59,12 +80,8 @@ https://wiki.archlinux.org/title/Rime
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system(
-          "cp ./custom/default.custom.yaml #{Config::LinuxDistro::ConfigPath}/"
-        )
-        system(
-          "cp ./custom/squirrel.custom.yaml #{Config::LinuxDistro::ConfigPath}/"
-        )
+        system("cp ./custom/default.custom.yaml #{LinuxDistro.ConfigPath}/")
+        system("cp ./custom/squirrel.custom.yaml #{LinuxDistro.ConfigPath}/")
         sleep 1
         return :next
       end
@@ -79,20 +96,14 @@ https://wiki.archlinux.org/title/Rime
                "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: #{Config::LinuxDistro::ConfigPath}/"
+        puts "Config path: #{LinuxDistro.ConfigPath}/"
         return :next
       end
     end
 
-    BeforeHook = [
-      CheckInstallRimeJob
-    ]
+    BeforeHook = [CheckInstallRimeJob]
 
-    Jobs = [
-      BackupRimeConfigJob,
-      CloneConfigJob,
-      CopyCustomConfigJob
-    ]
+    Jobs = [BackupRimeConfigJob, CloneConfigJob, CopyCustomConfigJob]
 
     FinishedHook = [FinishedJob]
   end
