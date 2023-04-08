@@ -31,14 +31,14 @@ https://wiki.archlinux.org/title/Rime
             [
               "ibus-rime",
               -> do
-                LinuxDistro.config =
+                LinuxDistro.config_path =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathIbus
               end
             ],
             [
               "fcitx-rime",
               -> do
-                LinuxDistro.config =
+                LinuxDistro.config_path =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx
               end
             ],
