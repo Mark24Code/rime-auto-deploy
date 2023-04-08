@@ -19,7 +19,7 @@ step1: 克隆到本地
 
 step2: 执行部署脚本
 
-`./deploy.rb`
+`./installer.rb`
 
 # 自动部署内容：
 
