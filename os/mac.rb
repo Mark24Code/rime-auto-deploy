@@ -19,9 +19,7 @@ module RimeDeploy
     class CloneConfigJob < Job
       def call
         puts intro
-        system(
-          "git clone --depth=1 https://github.com/iDvel/rime-ice.git ~/Library/Rime"
-        )
+        system("git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime")
         return :next
       end
     end
@@ -31,6 +29,13 @@ module RimeDeploy
         puts intro
         system("cp ./custom/default.custom.yaml ~/Library/Rime/")
         system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
+        return :next
+      end
+    end
+
+    class FinishedJob < Job
+      def call
+        puts "Please restart system then open Rime Setting and click DEPLOY."
         return :next
       end
     end
