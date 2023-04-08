@@ -39,7 +39,9 @@ module RimeDeploy
       code = <<-CODE
   class #{os_prefix}JobGroup < JobGroup
   end
-  #{os_prefix}JobGroup.new(#{os_prefix}::Jobs).call
+  mod = #{os_prefix}JobGroup.new(#{os_prefix}::Jobs, #{os_prefix}::FinishedHook)
+  mod.call
+
 CODE
       instance_eval(code)
     end

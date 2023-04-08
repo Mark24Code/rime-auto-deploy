@@ -79,12 +79,15 @@ module RimeDeploy
   end
 
   class JobGroup
-    def initialize(jobs)
+    def initialize(jobs, finished_hooks)
       @title = "=== Rime Deploy ====".green
       @queue = []
       jobs.each { |job| @queue << job.new }
 
       @current_index = 0
+
+      @finished_queue = []
+      finished_hooks.each { |job| @finished_queue << job.new }
     end
 
     def print_progress
@@ -148,6 +151,8 @@ module RimeDeploy
     end
     def call
       guidance
+
+      @finished_queue.each { |job| job.call }
     end
 
     def run_jobs_handle
