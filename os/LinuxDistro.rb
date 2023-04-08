@@ -16,7 +16,7 @@ module RimeDeploy
         tips = <<-TIP
 Different Linux has it's own package manager. So make sure you had installed Rime before.
 
-For Fcitx5, installfcitx5-rime.
+For Fcitx5, install fcitx5-rime.
 For Fcitx, install fcitx-rime.
 For IBus, install ibus-rime.
 
