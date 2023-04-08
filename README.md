@@ -16,7 +16,7 @@
 
 step1: 克隆到本地
 
-`git clone https://github.com/Mark24Code/rime-auto-deploy.git`
+`git clone https://github.com/Mark24Code/rime-auto-deploy.git --branch v1.0.0`
 
 step2: 执行部署脚本
 
