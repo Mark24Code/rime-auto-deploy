@@ -4,19 +4,12 @@ require "./lib/core"
 require "./lib/config"
 
 module OSPatch
-  def check_linux_debian?
-    return File.exist?("/etc/debian_version")
-  end
-
-  def detect_linux_debian
-    return File.exist?("/etc/debian_version")
-  end
-
-  def detect_linux_ubuntu
+  def check_linux_debian_distro
+    debian_distro = %w[debian ubuntu linuxmint linux-mint]
     os_release_file = "/etc/os-release"
     if File.exist?(os_release_file)
       os_release = File.read(os_release_file)
-      return true if os_release.include?("ubuntu")
+      debian_distro.each { |distro| return true if os_release.include?(distro) }
     end
     return false
   end
@@ -25,8 +18,11 @@ module OSPatch
     when /darwin/
       @osname = "MacOS"
     when /linux/
-      @osname = "DebianLinux" if detect_linux_debian
-      @osname = "UbuntuLinux" if detect_linux_ubuntu
+      if check_linux_debian_distro
+        @osname = "DebianLinux"
+      else
+        not_support_exit
+      end
     when /mswin|win32|mingw|cygwin/
       @osname = "win"
       not_support_exit
