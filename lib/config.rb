@@ -1,6 +1,5 @@
 module RimeDeploy
   module OSDetect
-    DebianDistro = %w[debian ubuntu linuxmint linux-mint]
   end
   module Config
     RIME_CONFIG_REPO = "https://github.com/iDvel/rime-ice.git"
@@ -9,7 +8,8 @@ module RimeDeploy
       ConfigPath = "~/Library/Rime"
     end
 
-    class DebianLinux
+    class DebianDistroLinux
+      DebianDistro = %w[debian ubuntu linuxmint linux-mint]
       InstallCmd = "sudo apt install ibus-rime"
       ConfigPath = "~/.config/ibus/rime"
     end

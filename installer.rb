@@ -8,7 +8,7 @@ module OSPatch
     os_release_file = "/etc/os-release"
     if File.exist?(os_release_file)
       os_release = File.read(os_release_file)
-      ::RimeDeploy::OSDetect::DebianDistro.each do |distro|
+      ::RimeDeploy::DebianDistroLinux::DebianDistro.each do |distro|
         return true if os_release.include?(distro)
       end
     end
@@ -20,7 +20,7 @@ module OSPatch
       @osname = "MacOS"
     when /linux/
       if check_linux_debian_distro
-        @osname = "DebianLinux"
+        @osname = "DebianDistroLinux"
       else
         not_support_exit
       end

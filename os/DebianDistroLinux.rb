@@ -1,10 +1,10 @@
 module RimeDeploy
-  module DebianLinux
+  module DebianDistroLinux
     class InstallRimeJob < Job
       def call
         puts intro
         puts "use Rime-ibus".yellow
-        system(Config::DebianLinux::InstallCmd)
+        system(Config::DebianDistroLinux::InstallCmd)
         sleep 1
         return :next
       end
@@ -14,7 +14,7 @@ module RimeDeploy
       def call
         puts intro
         system(
-          "mv #{Config::DebianLinux::ConfigPath} #{Config::DebianLinux::ConfigPath}.#{Time.now.to_i}.old"
+          "mv #{Config::DebianDistroLinux::ConfigPath} #{Config::DebianDistroLinux::ConfigPath}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -25,7 +25,7 @@ module RimeDeploy
       def call
         puts intro
         system(
-          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Config::DebianLinux::ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Config::DebianDistroLinux::ConfigPath}"
         )
         sleep 1
         return :next
@@ -36,10 +36,10 @@ module RimeDeploy
       def call
         puts intro
         system(
-          "cp ./custom/default.custom.yaml #{Config::DebianLinux::ConfigPath}/"
+          "cp ./custom/default.custom.yaml #{Config::DebianDistroLinux::ConfigPath}/"
         )
         system(
-          "cp ./custom/squirrel.custom.yaml #{Config::DebianLinux::ConfigPath}/"
+          "cp ./custom/squirrel.custom.yaml #{Config::DebianDistroLinux::ConfigPath}/"
         )
         sleep 1
         return :next
@@ -55,7 +55,7 @@ module RimeDeploy
                "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: #{Config::DebianLinux::ConfigPath}/"
+        puts "Config path: #{Config::DebianDistroLinux::ConfigPath}/"
         return :next
       end
     end
