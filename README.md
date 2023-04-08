@@ -1,5 +1,11 @@
 # Rime auto deploy
 
+## 依赖
+
+* 安装 `Ruby3`
+
+## 系统
+
 ⚠️ 支持：
 
 * MacOS ✅
@@ -21,7 +27,7 @@
 
 step1: 克隆到本地
 
-`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v1.0.0`
+`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v2.0.0`
 
 step2: 执行部署脚本
 
