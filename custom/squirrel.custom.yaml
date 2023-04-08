@@ -21,8 +21,8 @@ patch:
     # color_scheme_dark: purity_of_form_custom
     # color_scheme: macos_light
     # color_scheme_dark: macos_dark
-    color_scheme: wechat_light
-    color_scheme_dark: wechat_dark
+    color_scheme: mac_light
+    color_scheme_dark: mac_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal  # horizontal | vertical
@@ -209,6 +209,54 @@ patch:
       border_color: 0x292929                  # 外边框颜色
 
     # https://ssnhd.com/2022/01/11/rime-skin/
+    mac_light:
+      name: Mac浅色
+      horizontal: true             # true横排，false竖排
+      candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      hilited_corner_radius: 5                     # 高亮圆角
+      line_spacing: 10                             # 行间距(适用于竖排)
+      border_height: 4                             # 窗口上下高度，大于圆角半径才生效
+      border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
+      font_face: "PingFangSC"                      # 候选词字体
+      font_point: 21                               # 候选字大小
+      label_font_point: 13                         # 候选编号大小
+      text_color: 0x424242                    # 拼音行文字颜色
+      back_color: 0xFFFFFF                    # 候选条背景色
+      border_color: 0xFFFFFF                  # 边框色
+      label_color: 0x999999                   # 预选栏编号颜色
+      candidate_text_color: 0x3c3c3c          # 预选项文字颜色
+      comment_text_color: 0x999999            # 拼音等提示文字颜色
+      hilited_text_color: 0x999999            # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0xD75A00            # 第一候选项背景背景色
+      hilited_candidate_text_color: 0xFFFFFF  # 第一候选项文字颜色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
+      hilited_comment_text_color: 0x999999    # 注解文字高亮
+    mac_dark:
+      name: Mac深色
+      horizontal: true             # true横排，false竖排
+      candidate_format: "%c %@ "   # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 5                             # 窗口圆角
+      hilited_corner_radius: 5                     # 高亮圆角
+      line_spacing: 10                             # 行间距(适用于竖排)
+      border_height: 4                             # 窗口上下高度，大于圆角半径才生效
+      border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
+      font_face: "PingFangSC"                      # 候选词字体
+      font_point: 21                               # 候选字大小
+      label_font_point: 13                         # 候选编号大小
+      text_color: 0x424242                    # 拼音行文字颜色
+      back_color: 0x252a2e                    # 候选条背景色
+      border_color: 0x050505                  # 边框色
+      label_color: 0x999999                   # 预选栏编号颜色
+      candidate_text_color: 0xe9e9ea          # 预选项文字颜色
+      comment_text_color: 0x999999            # 拼音等提示文字颜色
+      hilited_text_color: 0x999999            # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0xD75A00            # 第一候选项背景背景色
+      hilited_candidate_text_color: 0xFFFFFF  # 第一候选项文字颜色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色
+      hilited_comment_text_color: 0x999999    # 注解文字高亮
+
+
     mac_green:
       name: Mac绿色
       horizontal: true             # true横排，false竖排
@@ -219,7 +267,7 @@ patch:
       border_height: 4                             # 窗口上下高度，大于圆角半径才生效
       border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
       font_face: "PingFangSC"                      # 候选词字体
-      font_point: 16                               # 候选字大小
+      font_point: 21                               # 候选字大小
       label_font_point: 13                         # 候选编号大小
       text_color: 0x424242                    # 拼音行文字颜色
       back_color: 0xFFFFFF                    # 候选条背景色
@@ -243,7 +291,7 @@ patch:
       border_height: 4                             # 窗口上下高度，大于圆角半径才生效
       border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
       font_face: "PingFangSC"                      # 候选词字体
-      font_point: 16                               # 候选字大小
+      font_point: 21                               # 候选字大小
       label_font_point: 13                         # 候选编号大小
       text_color: 0x424242                    # 拼音行文字颜色
       back_color: 0xFFFFFF                    # 候选条背景色
@@ -263,7 +311,7 @@ patch:
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
       font_face: "PingFangSC"                      # 候选词字体
-      font_point: 16                               # 候选字大小
+      font_point: 21                               # 候选字大小
       label_font_point: 13                         # 候选编号大小
       line_spacing: 10                             # 行间距(适用于竖排)
       text_color: 0x424242                    # 拼音行文字颜色
@@ -283,7 +331,7 @@ patch:
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 5                             # 窗口圆角
-      font_point: 16                               # 候选文字大小
+      font_point: 21                               # 候选文字大小
       label_font_point: 14                         # 候选编号大小
       font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
       line_spacing: 10                             # 行间距(适用于竖排)
@@ -331,7 +379,7 @@ patch:
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 6                             # 窗口圆角
-      font_point: 16                               # 候选文字大小
+      font_point: 21                               # 候选文字大小
       label_font_point: 15                         # 候选编号大小
       line_spacing: 10                             # 行间距(适用于竖排)
       font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
@@ -351,7 +399,7 @@ patch:
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
       corner_radius: 6                             # 窗口圆角
-      font_point: 16                               # 候选文字大小
+      font_point: 21                               # 候选文字大小
       label_font_point: 15                         # 候选编号大小
       line_spacing: 10                             # 行间距(适用于竖排)
       font_face: "PingFangSC-Regular,HanaMinB"     # 候选词字体
@@ -389,7 +437,7 @@ patch:
       name: 谷歌
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 15                     # 候选编号大小
       corner_radius: 6                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
@@ -409,7 +457,7 @@ patch:
       name: 米兰
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       line_spacing: 10                         # 行间距(适用于竖排)
       border_height: 4                             # 窗口上下高度，大于圆角半径才生效
@@ -425,7 +473,7 @@ patch:
       name: 墨池
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       corner_radius: 5                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
@@ -442,7 +490,7 @@ patch:
       name: 纯洁
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       corner_radius: 5                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
@@ -459,7 +507,7 @@ patch:
       name: 星际争霸
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       corner_radius: 5                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
@@ -478,7 +526,7 @@ patch:
       name: 北方浅色
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       corner_radius: 5                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
@@ -496,7 +544,7 @@ patch:
       name: 北方深色
       horizontal: true              # true横排，false竖排
       candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-      font_point: 16                           # 候选文字大小
+      font_point: 21                           # 候选文字大小
       label_font_point: 14                     # 候选编号大小
       corner_radius: 5                         # 窗口圆角
       line_spacing: 10                         # 行间距(适用于竖排)
