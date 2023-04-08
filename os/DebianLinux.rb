@@ -12,7 +12,7 @@ module RimeDeploy
 
     class BackupRimeConfigJob < Job
       def call
-        puts "Job: BackupRimeConfigJob".blue
+        puts into
         system(
           "mv #{Config::DebianLinux::ConfigPath} #{Config::DebianLinux::ConfigPath}.#{Time.now.to_i}.old"
         )

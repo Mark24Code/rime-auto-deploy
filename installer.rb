@@ -8,24 +8,25 @@ module OSPatch
     return File.exist?("/etc/debian_version")
   end
 
+  def detect_linux_debian
+    return File.exist?("/etc/debian_version")
+  end
+
+  def detect_linux_ubuntu
+    os_release_file = "/etc/os-release"
+    if File.exist?(os_release_file)
+      os_release = File.read(os_release_file)
+      return true if os_release.include?("ubuntu")
+    end
+    return false
+  end
   def check_os
     case RUBY_PLATFORM.downcase
     when /darwin/
       @osname = "MacOS"
-    when /ubuntu/i
-      @osname = "DebianLinux"
-    when /debian/i
-      @osname = "DebianLinux"
-      # when /centos/i
-      #   @osname = "CentOS"
-      # when /fedora/i
-      #   @osname = "Fedora"
-      # when /redhat/i
-      #   @osname = "Red Hat"
-      # when /suse/i
-      #   @osname = "SUSE"
-      # when /unix/
-      #   @osname = "unix"
+    when /linux/
+      @osname = "DebianLinux" if detect_linux_debian
+      @osname = "UbuntuLinux" if detect_linux_ubuntu
     when /mswin|win32|mingw|cygwin/
       @osname = "win"
       not_support_exit

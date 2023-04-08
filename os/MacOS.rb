@@ -1,5 +1,5 @@
 module RimeDeploy
-  module Mac
+  module MacOS
     class InstallRimeJob < Job
       def call
         puts intro
@@ -11,7 +11,7 @@ module RimeDeploy
 
     class BackupRimeConfigJob < Job
       def call
-        puts "Job: BackupRimeConfigJob".blue
+        puts intro
         system(
           "mv #{Config::MacOS::ConfigPath} #{Config::MacOS::ConfigPath}.#{Time.now.to_i}.old"
         )
