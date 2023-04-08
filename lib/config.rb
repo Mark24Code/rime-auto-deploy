@@ -6,7 +6,8 @@ module RimeDeploy
     end
 
     module Linux
-      ConfigPath = "~/Library/Rime"
+      InstallCmd = "sudo apt install ibus-rime"
+      ConfigPath = "~/.config/ibus/rime/"
     end
   end
 end
