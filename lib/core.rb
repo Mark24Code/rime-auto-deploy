@@ -46,7 +46,7 @@ module RimeDeploy
         @items.each_with_index do |item, index|
           puts "[#{index + 1}] " + item[0]
         end
-        puts "Tips: input the index. e.g: 1"
+        puts "Tips: input the index. e.g: 1; Ctrl-C exit."
         puts "Message: #{message}".red if message
         print ">>".green
         choose_mode = gets
@@ -151,45 +151,53 @@ module RimeDeploy
     end
 
     def run_jobs_handle
-      system("clear")
-      puts "[Handle Mode]".yellow
-      handle_jobs = []
-      @queue.each_with_index do |job, index|
-        job_intro = job.intro.to_s.ljust(20).green
-        handle_jobs.push(
-          ["#{job_intro}", -> { run_job_with_info_wrapper(job) }]
-        )
-      end
-      begin
-        ChooseSession.new(handle_jobs).call
-        return
-      rescue RimeDeployError
-        what_next
-      end
+      halt_flag =
+        catch :halt do
+          system("clear")
+          puts "[Handle Mode]".yellow
+          handle_jobs = []
+          @queue.each_with_index do |job, index|
+            job_intro = job.intro.to_s.ljust(20).green
+            handle_jobs.push(
+              ["#{job_intro}", -> { run_job_with_info_wrapper(job) }]
+            )
+          end
+          begin
+            ChooseSession.new(handle_jobs).call
+          rescue RimeDeployError
+            what_next
+          end
+        end
+      run_jobs_handle if halt_flag == :handle_mode
     end
 
     def run_jobs_auto
       system("clear")
       puts "[Auto Mode]".green
       print_progress
-      while @current_index < @queue.length
-        current_job = @queue[@current_index]
-        current_job.status = :processing
-        print_progress
-        begin
-          result = current_job.call
-          if result == :next
-            current_job.status = :done
-            @current_index += 1
-          else
-            # 失败处理
-            raise RimeDeployError
+      halt_flag =
+        catch :halt do
+          while @current_index < @queue.length
+            current_job = @queue[@current_index]
+            current_job.status = :processing
+            print_progress
+            begin
+              result = current_job.call
+              if result == :next
+                current_job.status = :done
+                @current_index += 1
+              else
+                # 失败处理
+                raise RimeDeployError
+              end
+              print_progress
+            rescue RimeDeployError
+              what_next
+            end
           end
-          print_progress
-        rescue RimeDeployError
-          what_next
         end
-      end
+
+      run_jobs_handle if halt_flag == :handle_mode
     end
 
     def reset_status
@@ -202,7 +210,7 @@ module RimeDeploy
       ChooseSession.new(
         [
           ["Retry", -> {}],
-          ["Change to: Handle mode", -> { run_jobs_handle }],
+          ["Change to: Handle mode", -> { throw :halt, :handle_mode }],
           ["Exit", -> { exit 0 }]
         ]
       ).call
