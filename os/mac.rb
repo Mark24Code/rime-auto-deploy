@@ -4,6 +4,7 @@ module RimeDeploy
       def call
         puts intro
         system("brew install --cask squirrel")
+        sleep 1
         return :next
       end
     end
@@ -12,6 +13,7 @@ module RimeDeploy
       def call
         puts "Job: BackupRimeConfigJob".blue
         system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
+        sleep 1
         return :next
       end
     end
@@ -20,6 +22,7 @@ module RimeDeploy
       def call
         puts intro
         system("git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime")
+        sleep 1
         return :next
       end
     end
@@ -29,6 +32,7 @@ module RimeDeploy
         puts intro
         system("cp ./custom/default.custom.yaml ~/Library/Rime/")
         system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
+        sleep 1
         return :next
       end
     end
