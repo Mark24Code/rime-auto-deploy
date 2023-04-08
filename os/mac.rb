@@ -29,8 +29,8 @@ module RimeDeploy
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./default.custom.yaml ~/Library/Rime/")
-        system("cp ./squirrel.custom.yaml ~/Library/Rime/")
+        system("cp ./custom/default.custom.yaml ~/Library/Rime/")
+        system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
         return :next
       end
     end

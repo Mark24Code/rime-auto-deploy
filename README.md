@@ -4,6 +4,7 @@
 
 ![rime](./images/rime.jpeg)
 ![result](./images/result.png)
+![working](./images/working.png)
 
 ### 参考&感谢：
 
