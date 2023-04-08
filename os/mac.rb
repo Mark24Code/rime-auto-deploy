@@ -3,7 +3,7 @@ module RimeDeploy
     class InstallRimeJob < Job
       def call
         puts intro
-        # system("brew install --cask squirrel")
+        system("brew install --cask squirrel")
         return :next
       end
     end
@@ -11,7 +11,7 @@ module RimeDeploy
     class BackupRimeConfigJob < Job
       def call
         puts "Job: BackupRimeConfigJob".blue
-        # system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
+        system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
         return :next
       end
     end
@@ -19,7 +19,7 @@ module RimeDeploy
     class CloneConfigJob < Job
       def call
         puts intro
-        # system("git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime")
+        system("git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime")
         return :next
       end
     end
@@ -27,8 +27,8 @@ module RimeDeploy
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        # system("cp ./custom/default.custom.yaml ~/Library/Rime/")
-        # system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
+        system("cp ./custom/default.custom.yaml ~/Library/Rime/")
+        system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
         return :next
       end
     end
