@@ -24,7 +24,7 @@ Debian发行版，默认注册了
 * linuxmint
 * linux-mint
 
-可以在 `lib/config` 中 `Config::DebianDistroLinux::DebianDistro` 中自行添加关键字支持。
+可以在 `lib/config` 中 `Config::LinuxDistro::DebianDistro` 中自行添加关键字支持。
 
 ### 参考&感谢：
 

@@ -4,26 +4,12 @@ require "./lib/core"
 require "./lib/config"
 
 module OSPatch
-  def check_linux_debian_distro
-    os_release_file = "/etc/os-release"
-    if File.exist?(os_release_file)
-      os_release = File.read(os_release_file)
-      ::RimeDeploy::Config::DebianDistroLinux::DebianDistro.each do |distro|
-        return true if os_release.include?(distro)
-      end
-    end
-    return false
-  end
   def check_os
     case RUBY_PLATFORM.downcase
     when /darwin/
       @osname = "MacOS"
     when /linux/
-      if check_linux_debian_distro
-        @osname = "DebianDistroLinux"
-      else
-        not_support_exit
-      end
+      @osname = "LinuxDistro"
     when /mswin|win32|mingw|cygwin/
       @osname = "win"
       not_support_exit

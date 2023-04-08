@@ -8,10 +8,10 @@ module RimeDeploy
       ConfigPath = "~/Library/Rime"
     end
 
-    class DebianDistroLinux
-      DebianDistro = %w[debian ubuntu linuxmint linux-mint]
-      InstallCmd = "sudo apt install ibus-rime"
-      ConfigPath = "~/.config/ibus/rime"
+    class LinuxDistro
+      ConfigPathIbus = "~/.config/ibus/rime"
+      ConfigPathFcitx = "~/.config/fcitx/rime"
+      ConfigPathFcitx5 = "~/.local/share/fcitx5/rime"
     end
   end
 end
