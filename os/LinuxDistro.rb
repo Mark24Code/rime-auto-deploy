@@ -48,6 +48,10 @@ https://wiki.archlinux.org/title/Rime
                 LinuxDistro.config_path =
                   ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx5
               end
+            ],
+            [
+              "I'll quit first.After installed Rime byself then run this program again.",
+              -> { exit 0 }
             ]
           ]
         ).call
