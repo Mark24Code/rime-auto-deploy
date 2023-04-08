@@ -3,7 +3,7 @@ module RimeDeploy
     class InstallRimeJob < Job
       def call
         puts intro
-        system("brew install --cask squirrel")
+        system(OSConfig::Mac::InstallCmd)
         sleep 1
         return :next
       end
@@ -12,7 +12,9 @@ module RimeDeploy
     class BackupRimeConfigJob < Job
       def call
         puts "Job: BackupRimeConfigJob".blue
-        system("mv ~/Library/Rime ~/Library/Rime.#{Time.now.to_i}.old")
+        system(
+          "mv #{OSConfig::Mac::ConfigPath} #{OSConfig::Mac::ConfigPath}.#{Time.now.to_i}.old"
+        )
         sleep 1
         return :next
       end
@@ -21,7 +23,9 @@ module RimeDeploy
     class CloneConfigJob < Job
       def call
         puts intro
-        system("git clone https://github.com/iDvel/rime-ice.git ~/Library/Rime")
+        system(
+          "git clone https://github.com/iDvel/rime-ice.git #{OSConfig::Mac::ConfigPath}"
+        )
         sleep 1
         return :next
       end
@@ -30,8 +34,8 @@ module RimeDeploy
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./custom/default.custom.yaml ~/Library/Rime/")
-        system("cp ./custom/squirrel.custom.yaml ~/Library/Rime/")
+        system("cp ./custom/default.custom.yaml #{OSConfig::Mac::ConfigPath}/")
+        system("cp ./custom/squirrel.custom.yaml #{OSConfig::Mac::ConfigPath}/")
         sleep 1
         return :next
       end
@@ -42,10 +46,11 @@ module RimeDeploy
         puts ""
         puts "Tips: When finished all jobs. You need to do follow:".yellow
         puts "1) Restart system."
-        puts "2) open Rime input method setting pane and click " + "DEPLOY".yellow + " button."
+        puts "2) open Rime input method setting pane and click " +
+               "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: ~/Library/Rime/"
+        puts "Config path: #{OSConfig::Mac::ConfigPath}/"
         return :next
       end
     end

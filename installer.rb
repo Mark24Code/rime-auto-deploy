@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "./lib/core"
+require "./lib/config"
 module RimeDeploy
   class Installer
     def initialize
