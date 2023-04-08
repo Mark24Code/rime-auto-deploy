@@ -5,11 +5,12 @@ require "./lib/config"
 
 module OSPatch
   def check_linux_debian_distro
-    debian_distro = %w[debian ubuntu linuxmint linux-mint]
     os_release_file = "/etc/os-release"
     if File.exist?(os_release_file)
       os_release = File.read(os_release_file)
-      debian_distro.each { |distro| return true if os_release.include?(distro) }
+      OSDetect::DebianDistro.each do |distro|
+        return true if os_release.include?(distro)
+      end
     end
     return false
   end

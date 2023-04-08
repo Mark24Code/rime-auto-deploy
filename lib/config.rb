@@ -1,8 +1,10 @@
 module RimeDeploy
+  module OSDetect
+    DebianDistro = %w[debian ubuntu linuxmint linux-mint]
+  end
   module Config
     RIME_CONFIG_REPO = "https://github.com/iDvel/rime-ice.git"
-
-    class Mac
+    class MacOS
       InstallCmd = "brew install --cask squirrel"
       ConfigPath = "~/Library/Rime"
     end
