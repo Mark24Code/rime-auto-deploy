@@ -31,6 +31,35 @@ class String
   include StringPatch
 end
 
+class ChooseSession
+  def initialize(items)
+    @items = items #[[intro, method]] auto index
+  end
+
+  def call
+    message = nil
+    choose = nil
+    while true
+      puts @title
+      puts "Choose mode:"
+      @items.each_with_index { |item, index| puts "[#{index + 1}] " + item[0] }
+      puts "Tips: input the index. e.g: 01"
+      puts "Message: #{message}".red if message
+      print ">>".green
+      choose_mode = gets
+      choose_index = choose_mode.strip
+      if choose_index =~ /\d+/ && choose_index.to_i <= @items.length
+        choose = @items[choose_index.to_i - 1]
+        break
+      else
+        message = "Wrong Index, try again."
+      end
+    end
+
+    choose[1].call
+  end
+end
+
 class Job
   attr_accessor :status, :intro
   def initialize
@@ -86,6 +115,7 @@ end
 
 class MacOSJobGroup
   def initialize(jobs)
+    @title = "=== Rime Deploy ===="
     @queue = []
     jobs.each { |job| @queue << job.new }
 
@@ -95,7 +125,7 @@ class MacOSJobGroup
 
   def print_progress
     system("clear")
-    puts "=== Rime Deploy ===="
+    puts @title
     @queue.each_with_index do |job, index|
       job_id = "[%02d]" % (index + 1)
       job_intro = job.intro.to_s.ljust(20).green
@@ -118,20 +148,63 @@ class MacOSJobGroup
     end
   end
 
-  def call
+  def run_job_with_info_wrapper(current_job)
     print_progress
-    while @current_index < @queue.length
-      current_job = @queue[@current_index]
-      current_job.status = :processing
-      print_progress
+    begin
       result = current_job.call
-
       if result == :next
         current_job.status = :done
         @current_index += 1
       else
         # 失败处理
+        raise RimeDeployError
       end
+      print_progress
+    rescue RimeDeployError
+      run_jobs_handle
+    end
+  end
+
+  def guidance
+    ChooseSession.new(
+      [
+        ["Auto mode: Suitable for first-time operation.", -> { run_jobs_auto }],
+        ["Handle mode: Decide to execute on your own.", -> { run_jobs_handle }]
+      ]
+    ).call
+  end
+  def call
+    guidance
+  end
+
+  def run_jobs_handle
+    handle_jobs = []
+    @queue.each_with_index do |job, index|
+      job_intro = job.intro.to_s.ljust(20).green
+      handle_jobs.push(["#{job_intro}", -> { run_job_with_info_wrapper(job) }])
+    end
+    ChooseSession.new(handle_jobs).call
+  end
+
+  def run_jobs_auto
+    print_progress
+    while @current_index < @queue.length && @mode == :auto
+      current_job = @queue[@current_index]
+      current_job.status = :processing
+      print_progress
+      begin
+        result = current_job.call
+        if result == :next
+          current_job.status = :done
+          @current_index += 1
+        else
+          # 失败处理
+          raise RimeDeployError
+        end
+      rescue RimeDeployError
+        @mode = :handle
+      end
+
       print_progress
     end
   end
