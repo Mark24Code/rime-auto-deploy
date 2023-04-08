@@ -79,16 +79,43 @@ module RimeDeploy
   end
 
   class JobGroup
-    def initialize(before_hooks = [], jobs = [], finished_hooks = [])
+    @jobs = []
+    @after_jobs = []
+    @before_jobs = []
+
+    def self.jobs
+      @jobs
+    end
+    def self.jobs=(value)
+      @jobs = value
+    end
+
+    def self.after_jobs
+      @after_jobs
+    end
+    def self.after_jobs=(value)
+      @after_jobs = value
+    end
+
+    def self.before_jobs
+      @before_jobs
+    end
+    def self.before_jobs=(value)
+      @before_jobs = value
+    end
+
+    def initialize()
       @title = "=== Rime Deploy ====".green
-      @before_queue = []
-      before_hooks.each { |job| @before_queue << job.new }
+      @before_jobs = []
+      if self.class.before_jobs
+        self.class.before_jobs.each { |job| @before_jobs << job.new }
+      end
 
       @queue = []
-      jobs.each { |job| @queue << job.new }
+      self.class.jobs.each { |job| @queue << job.new } if self.class.jobs.each
 
-      @finished_queue = []
-      finished_hooks.each { |job| @finished_queue << job.new }
+      @after_jobs = []
+      self.class.after_jobs.each { |job| @after_jobs << job.new }
 
       @current_index = 0
     end
@@ -151,11 +178,6 @@ module RimeDeploy
           ]
         ]
       ).call
-    end
-    def call
-      @before_queue.each { |job| job.call }
-      guidance
-      @finished_queue.each { |job| job.call }
     end
 
     def run_jobs_handle
@@ -222,6 +244,12 @@ module RimeDeploy
           ["Exit", -> { exit 0 }]
         ]
       ).call
+    end
+
+    def call
+      @before_jobs.length > 0 && @before_jobs.each { |job| job.call }
+      guidance
+      @after_jobs.length > 0 && @after_jobs.each { |job| job.call }
     end
   end
 end

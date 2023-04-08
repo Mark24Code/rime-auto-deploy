@@ -1,12 +1,16 @@
 module RimeDeploy
-  class LinuxDistro
-    @@config_path = nil
+  class LinuxDistroJobGroup < JobGroup
+    ConfigPathIbus = "~/.config/ibus/rime"
+    ConfigPathFcitx = "~/.config/fcitx/rime"
+    ConfigPathFcitx5 = "~/.local/share/fcitx5/rime"
+
+    @config_path = nil
     def self.config_path=(value)
-      @@config_path = value
+      @config_path = value
     end
 
     def self.config_path
-      @@config_path
+      @config_path
     end
 
     class CheckInstallRimeJob < Job
@@ -31,22 +35,19 @@ https://wiki.archlinux.org/title/Rime
             [
               "ibus-rime",
               -> do
-                LinuxDistro.config_path =
-                  ::RimeDeploy::Config::LinuxDistro::ConfigPathIbus
+                LinuxDistro.config_path = LinuxDistroJobGroup::ConfigPathIbus
               end
             ],
             [
               "fcitx-rime",
               -> do
-                LinuxDistro.config_path =
-                  ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx
+                LinuxDistro.config_path = LinuxDistroJobGroup::ConfigPathFcitx
               end
             ],
             [
               "fcitx5-rime",
               -> do
-                LinuxDistro.config_path =
-                  ::RimeDeploy::Config::LinuxDistro::ConfigPathFcitx5
+                LinuxDistro.config_path = LinuxDistroJobGroup::ConfigPathFcitx5
               end
             ],
             [
@@ -105,11 +106,8 @@ https://wiki.archlinux.org/title/Rime
         return :next
       end
     end
-
-    BeforeHook = [CheckInstallRimeJob]
-
-    Jobs = [BackupRimeConfigJob, CloneConfigJob, CopyCustomConfigJob]
-
-    FinishedHook = [FinishedJob]
+    self.before_jobs = [CheckInstallRimeJob]
+    self.jobs = [BackupRimeConfigJob, CloneConfigJob, CopyCustomConfigJob]
+    self.after_jobs = [FinishedJob]
   end
 end

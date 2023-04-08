@@ -24,7 +24,6 @@ module RimeDeploy
     def initialize
       @osname = nil
       check_os
-      dispatch
       run
     end
 
@@ -33,20 +32,9 @@ module RimeDeploy
       exit 0
     end
 
-    def dispatch
-      require "./os/#{@osname}"
-    end
-
     def run
-      os_prefix = @osname
-      code = <<-CODE
-  class #{os_prefix}JobGroup < JobGroup
-  end
-  mod = #{os_prefix}JobGroup.new(#{os_prefix}::BeforeHook, #{os_prefix}::Jobs, #{os_prefix}::FinishedHook)
-  mod.call
-
-CODE
-      instance_eval(code)
+      require "./os/#{@osname}"
+      instance_eval("#{@osname}JobGroup.new.call")
     end
   end
 end
