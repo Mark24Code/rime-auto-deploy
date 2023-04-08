@@ -55,6 +55,8 @@ module RimeDeploy
       end
     end
 
+    BeforeHook = []
+
     Jobs = [
       InstallRimeJob,
       BackupRimeConfigJob,
