@@ -1,6 +1,4 @@
 module RimeDeploy
-  module OSDetect
-  end
   module Config
     RIME_CONFIG_REPO = "https://github.com/iDvel/rime-ice.git"
     class MacOS
