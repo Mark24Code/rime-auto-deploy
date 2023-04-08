@@ -84,8 +84,11 @@ https://wiki.archlinux.org/title/Rime
       end
     end
 
+    BeforeHook = [
+      CheckInstallRimeJob
+    ]
+
     Jobs = [
-      InstallRimeJob,
       BackupRimeConfigJob,
       CloneConfigJob,
       CopyCustomConfigJob
