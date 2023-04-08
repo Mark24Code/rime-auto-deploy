@@ -3,7 +3,7 @@ module RimeDeploy
     class InstallRimeJob < Job
       def call
         puts intro
-        system(OSConfig::Mac::InstallCmd)
+        system(Config::MacOS::InstallCmd)
         sleep 1
         return :next
       end
@@ -13,7 +13,7 @@ module RimeDeploy
       def call
         puts "Job: BackupRimeConfigJob".blue
         system(
-          "mv #{OSConfig::Mac::ConfigPath} #{OSConfig::Mac::ConfigPath}.#{Time.now.to_i}.old"
+          "mv #{Config::MacOS::ConfigPath} #{Config::MacOS::ConfigPath}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -23,7 +23,9 @@ module RimeDeploy
     class CloneConfigJob < Job
       def call
         puts intro
-        system("git clone #{RIME_CONFIG_REPO} #{OSConfig::Mac::ConfigPath}")
+        system(
+          "git clone #{Config::RIME_CONFIG_REPO} #{Config::MacOS::ConfigPath}"
+        )
         sleep 1
         return :next
       end
@@ -32,8 +34,8 @@ module RimeDeploy
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./custom/default.custom.yaml #{OSConfig::Mac::ConfigPath}/")
-        system("cp ./custom/squirrel.custom.yaml #{OSConfig::Mac::ConfigPath}/")
+        system("cp ./custom/default.custom.yaml #{Config::MacOS::ConfigPath}/")
+        system("cp ./custom/squirrel.custom.yaml #{Config::MacOS::ConfigPath}/")
         sleep 1
         return :next
       end
@@ -48,7 +50,7 @@ module RimeDeploy
                "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: #{OSConfig::Mac::ConfigPath}/"
+        puts "Config path: #{Config::MacOS::ConfigPath}/"
         return :next
       end
     end
