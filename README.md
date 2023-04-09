@@ -1,8 +1,10 @@
 # Rime auto deploy
 
-一个自用的脚本，帮助无痛快速安装、部署 Rime 输入法以及部署配置。
+一个自用的脚本，帮助无痛快速安装、部署 Rime 输入法（中州韵、小狼毫，鼠须管）以及部署配置。
 
-拉去雾凇拼音配置，新增主题。支持Linux、MacOS。
+集成 雾凇拼音配置，来源 https://dvel.me/posts/rime-ice/
+集成 20款 输入法皮肤, 来源 https://ssnhd.com/2022/01/11/rime-skin/ 包括微信皮肤
+新增主题。支持Linux、MacOS。
 
 ## 系统
 
@@ -46,15 +48,15 @@ step2: 执行部署脚本
 
 # 自动部署内容：
 
-## step1: 确认安装 Rime 输入法，自动安装
+step1: 确认安装 Rime 输入法，自动安装
 
 需要用户自行登出，重进系统，设置Rime输入法为系统输入法
 
-## step2: 备份 Rime 默认配置
+step2: 备份 Rime 默认配置
 
-## step3: 自动安装 Rime-ice 配置
+step3: 自动安装 Rime-ice 配置
 
-## step4: 自动追加自定义配置模板
+step4: 自动追加自定义配置模板
 
 
 ### 参考&感谢：
