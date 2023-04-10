@@ -12,7 +12,7 @@
 
 * MacOS ✅
 * Linux 发行版 ✅
-* Windows ✅ 
+* Windows ✅  [查看 Windows 下的说明文档](./WINDOWS_README.md)
 
 ![rime](./images/rime.jpeg)
 ![result](./images/result.png)
