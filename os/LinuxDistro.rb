@@ -89,12 +89,7 @@ https://wiki.archlinux.org/title/Rime
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system(
-          "cp ./custom/default.custom.yaml #{LinuxDistroJobGroup.config_path}/"
-        )
-        system(
-          "cp ./custom/squirrel.custom.yaml #{LinuxDistroJobGroup.config_path}/"
-        )
+        system("cp ./custom/*.yaml #{LinuxDistroJobGroup.config_path}/")
         sleep 1
         return :next
       end

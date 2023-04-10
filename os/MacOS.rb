@@ -37,8 +37,7 @@ module RimeDeploy
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./custom/default.custom.yaml #{MacOSJobGroup::ConfigPath}/")
-        system("cp ./custom/squirrel.custom.yaml #{MacOSJobGroup::ConfigPath}/")
+        system("cp ./custom/*.yaml #{MacOSJobGroup::ConfigPath}/")
         sleep 1
         return :next
       end

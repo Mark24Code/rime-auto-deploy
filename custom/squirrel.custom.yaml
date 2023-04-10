@@ -48,11 +48,11 @@ patch:
       name: "MacOS 浅色／MacOS Light"
       author: 小码哥
       font_face: "PingFangSC"          # 字体及大小
-      font_point: 21
+      font_point: 16
       label_font_face: "PingFangSC"    # 序号字体及大小
       label_font_point: 12
       comment_font_face: "PingFangSC"  # 注字体及大小
-      comment_font_point: 21
+      comment_font_point: 16
       candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
       candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
       text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
@@ -80,7 +80,7 @@ patch:
       hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
       text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
       hilited_text_color: 0xFFFFFF            # 选中拼音颜色 （inline_preedit: false）
-      candidate_back_color: 0xe9e9ea          # 候选项底色
+      candidate_back_color: 0xFFFFFF          # 候选项底色
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
       border_color: 0xFFFFFF                  # 外边框颜色
@@ -89,11 +89,11 @@ patch:
       name: "MacOS 深色／MacOS Dark"
       author: 小码哥
       font_face: "PingFangSC"          # 字体及大小
-      font_point: 21
+      font_point: 16
       label_font_face: "PingFangSC"    # 序号字体及大小
       label_font_point: 12
       comment_font_face: "PingFangSC"  # 注字体及大小
-      comment_font_point: 21
+      comment_font_point: 16
       candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
       candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
       text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
@@ -121,7 +121,7 @@ patch:
       hilited_comment_text_color: 0x999999    # 选中注颜色
       text_color: 0x808080                    # 拼音颜色 （inline_preedit: false）
       hilited_text_color: 0xFFFFFF            # 选中拼音颜色 （inline_preedit: false）
-      candidate_back_color: 0xe9e9ea          # 候选项底色
+      candidate_back_color: 0x1f1e2d          # 候选项底色
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
       border_color: 0x050505                  # 外边框颜色
@@ -130,11 +130,11 @@ patch:
       name: "微信浅色／Wechat Light"
       author: 小码哥
       font_face: "PingFangSC"          # 字体及大小
-      font_point: 21
+      font_point: 16
       label_font_face: "PingFangSC"    # 序号字体及大小
       label_font_point: 13
       comment_font_face: "PingFangSC"  # 注字体及大小
-      comment_font_point: 21
+      comment_font_point: 16
       candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
       candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
       text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
@@ -162,7 +162,7 @@ patch:
       hilited_comment_text_color: 0x999999    # 选中注颜色
       text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
       hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
-      candidate_back_color: 0xe9e9ea          # 候选项底色
+      candidate_back_color: 0xFFFFFF          # 候选项底色
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
       border_color: 0xFFFFFF                  # 外边框颜色
@@ -171,11 +171,11 @@ patch:
       name: "微信深色／Wechat Dark"
       author: 小码哥
       font_face: "PingFangSC"          # 字体及大小
-      font_point: 21
+      font_point: 16
       label_font_face: "PingFangSC"    # 序号字体及大小
       label_font_point: 13
       comment_font_face: "PingFangSC"  # 注字体及大小
-      comment_font_point: 21
+      comment_font_point: 16
       candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
       candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
       text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
@@ -203,7 +203,7 @@ patch:
       hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
       text_color: 0xbbbbbb                    # 拼音颜色 （inline_preedit: false）
       hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
-      candidate_back_color: 0xbbbbbb          # 候选项底色
+      candidate_back_color: 0x151515          # 候选项底色
       # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
       hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
       border_color: 0x292929                  # 外边框颜色
