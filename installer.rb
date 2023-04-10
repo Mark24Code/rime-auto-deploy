@@ -11,8 +11,7 @@ module OSPatch
     when /linux/
       @osname = "LinuxDistro"
     when /mswin|win32|mingw|cygwin/
-      @osname = "win"
-      not_support_exit
+      @osname = "Windows"
     else
       not_support_exit
     end

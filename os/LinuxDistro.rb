@@ -54,7 +54,7 @@ https://wiki.archlinux.org/title/Rime
               end
             ],
             [
-              "I'll quit first.After installed Rime byself then run this program again.",
+              "I'll quit first.After installed Rime by myself then run this program again.",
               -> { exit 0 }
             ]
           ]

@@ -120,8 +120,12 @@ module RimeDeploy
       @current_index = 0
     end
 
-    def print_progress
+    def clear_screen
       system("clear")
+    end
+
+    def print_progress
+      clear_screen
       puts @title
       @queue.each_with_index do |job, index|
         job_id = "[%02d]" % (index + 1)
@@ -183,7 +187,7 @@ module RimeDeploy
     def run_jobs_handle
       halt_flag =
         catch :halt do
-          system("clear")
+          clear_screen
           puts "[Handle Mode]".yellow
           handle_jobs = []
           @queue.each_with_index do |job, index|
@@ -202,7 +206,7 @@ module RimeDeploy
     end
 
     def run_jobs_auto
-      system("clear")
+      clear_screen
       puts "[Auto Mode]".green
       print_progress
       halt_flag =
