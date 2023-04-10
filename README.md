@@ -12,7 +12,7 @@
 
 * MacOS ✅
 * Linux 发行版 ✅
-* Windows ✅
+* Windows ✅ 
 
 ![rime](./images/rime.jpeg)
 ![result](./images/result.png)
