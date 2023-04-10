@@ -87,6 +87,11 @@ https://github.com/Mark24Code/rime-auto-deploy/releases
 ![stop-service](/images/windows/05-run-script/step1-quit-servce.png)
 
 
-打开下载脚本目录，右击使用终端打开。执行 `ruby installer.rb`
+打开下载脚本目录，右击使用终端打开所在目录。
 
 ![run-script](/images/windows/05-run-script/step2-open-terminal.png)
+
+
+执行 `ruby .\installer.rb`
+
+![success](/images/windows/05-run-script/step3-success-run.png)
