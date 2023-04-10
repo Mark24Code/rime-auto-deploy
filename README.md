@@ -36,7 +36,9 @@ For IBus, install ibus-rime.
 more: https://wiki.archlinux.org/title/Rime
 ```
 
-# 使用方法
+## MacOS/Linux 使用方法
+
+>> Linux发行版和包管理太多，需要执行安装 Rime。MacOS 使用 brew 自动安装，需要拥有 brew。
 
 step1: 克隆到本地
 
@@ -46,7 +48,12 @@ step2: 执行部署脚本
 
 `./installer.rb`
 
-# 自动部署内容：
+## Windows 使用方法
+
+[查看 Windows 下的说明文档](./WINDOWS_README.md)
+
+
+## 自动部署内容：
 
 step1: 确认安装 Rime 输入法，自动安装
 
