@@ -40,7 +40,7 @@ more: https://wiki.archlinux.org/title/Rime
 
 step1: 克隆到本地
 
-`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v2.4.0`
+`git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v3.0.0`
 
 step2: 执行部署脚本
 
