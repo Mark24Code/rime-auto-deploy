@@ -38,7 +38,7 @@ more: https://wiki.archlinux.org/title/Rime
 
 ## MacOS/Linux 使用方法
 
->> Linux发行版和包管理太多，需要执行安装 Rime。MacOS 使用 brew 自动安装，需要拥有 brew。
+> Linux发行版和包管理太多，需要执行安装 Rime。MacOS 使用 brew 自动安装，需要拥有 brew。
 
 step1: 克隆到本地
 
