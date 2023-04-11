@@ -41,6 +41,8 @@ Ruby 类似于 Python 是一个脚本语言。如果把他们都比喻做发动�
 2. Windows 终端设置代理
 
 
+终端，比如下载 `MSYS2 development toolchain` 如果遇到网络问题，可能需要设置代理。
+
 例子如下： “7890” 替换成你本地梯子的端口，有的需要打开“局域网内允许代理”。
 ```
 set http_proxy=127.0.0.1:7890
@@ -73,7 +75,7 @@ set https_proxy=127.0.0.1:7890
 
 `git clone https://github.com/Mark24Code/rime-auto-deploy.git`
 
-2. 或者到下面的路径下载最新版本源码压缩包
+2. 或者到下面的路径下载最新版本源码压缩包,解压到目录
 
 https://github.com/Mark24Code/rime-auto-deploy/releases
 
