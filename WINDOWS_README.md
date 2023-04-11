@@ -94,9 +94,12 @@ https://github.com/Mark24Code/rime-auto-deploy/releases
 
 ## 05 执行脚本
 
-第一次执行脚本，需要执行中止 Rime小狼毫 的服务。后者正在执行的程序会无法替换配置文件夹。
+⚠️可能会遇到: 正在运行的程序会无法替换配置文件夹
 
-也可以直接在项目管理器中推出进程（推荐）。
+执行脚本，最好排除干扰，终止Rime运行:
+
+* 执行中止 Rime小狼毫 的服务。
+* 或者直接在项目管理器中退出Rime小狼毫进程（推荐）。
 
 ![stop-service](/images/windows/05-run-script/step1-quit-servce.png)
 
