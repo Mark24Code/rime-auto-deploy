@@ -2,9 +2,9 @@
 
 # Windows下的说明
 
-不同于 MacOS、Linux 大部分的工具内置、亦或者系统有包管理器（一种方便通过命令行自动安装软件的软件）可以方便安装软件。Windows 用户需要自己准备好环境安装。
+不同于 MacOS、Linux 大部分的工具已经内置，亦或者系统有包管理器（方便下载软件的一种软件）可以方便安装软件。Windows 用户需要自己安装必要的软件环境。
 
-## 01 安装 Ruby
+## 01 环境准备:安装 Ruby
 
 Ruby 类似于 Python 是一个脚本语言。需要借助解释器工作，如果把这两个语言官方解释器都比喻做发动机，Ruby3 的更加精巧、性能更高。 为了能运行脚本，需要在系统中提前安装 Ruby 解释器。
 
@@ -53,7 +53,7 @@ set https_proxy=127.0.0.1:7890
 
 
 
-## 02 安装 Git
+## 02 环境安装: 安装 Git
 
 下载配置仓库需要 Git。 Windows 可以去 Git 的官网安装 Git。
 
@@ -81,7 +81,7 @@ https://github.com/Mark24Code/rime-auto-deploy/releases
 
 
 
-## 04 安装 Rime 中州韵 
+## 04 环境安装: 安装 Rime 中州韵 
 
 在这里自行下载安装 Windows 版本的 Rime 中州韵
 
