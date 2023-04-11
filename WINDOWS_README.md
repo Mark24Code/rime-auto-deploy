@@ -13,21 +13,19 @@ Ruby 类似于 Python 是一个脚本语言。需要借助解释器工作，如�
 全部版本下载地址： https://rubyinstaller.org/downloads/
 
 
-也可以点击下面直接下载 Ruby 3.2.2（截至2023年4月10日最新版本），选择适合你的架构版本。
-
-最小安装推荐（14.3M），运行脚本足以：
+也可以点击下面直接下载 Ruby 3.2.2（14.3M），选择适合你的架构版本。
 
 * [ Ruby 3.2.2-1 (x64) ](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.2-1/rubyinstaller-3.2.2-1-x64.exe)
 * [Ruby 3.2.2-1 (x86) ](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.2-1/rubyinstaller-3.2.2-1-x86.exe)
 
 
-> 官网提供 Ruby + DevKit 的 RubyInstaller 适合开发者，可以在本地构建C拓展。我们暂时不需要，感兴趣的可以自行探索。
+> 官网提供 Ruby + DevKit 的 RubyInstaller 适合开发者。我们暂时不需要，感兴趣的可以自行探索。
 
 ####  Ruby 安装设置建议
 
 1. 按照默认工作的方式进行勾选
 
-⚠️ 关注添加到 PATH 的选项，如果出现请务必勾选 ⚠️
+⚠️ 关注添加到 PATH 的选项，如果出现请务必勾选
 
 文件夹 `/images/windows/01-install-ruby` 给出 Ruby + DevKit 版本的完整图示。
 
@@ -41,9 +39,11 @@ Ruby 类似于 Python 是一个脚本语言。需要借助解释器工作，如�
 2. Windows 终端设置代理
 
 
-终端，比如下载 `MSYS2 development toolchain` 如果遇到网络问题，可能需要设置代理。
+终端执行下载任务，比如下载 `MSYS2 development toolchain` ，或者通过 git 下载代码，可能会遇到 GF W制造的网络问题。
 
-例子如下： “7890” 替换成你本地梯子的端口，有的需要打开“局域网内允许代理”。
+如果遇到网络问题，需要自备梯子，并且给终端设置代理之后，再执行命令。
+
+设置代理命令，例子如下： “7890” 替换成你本地梯子的端口，⚠️有的梯子需设置里要打开“局域网内允许代理”类似的设置。
 ```
 set http_proxy=127.0.0.1:7890
 set https_proxy=127.0.0.1:7890
@@ -61,7 +61,7 @@ set https_proxy=127.0.0.1:7890
 
 按照默认的设置，一路确认安装即可。
 
-⚠️ 关注添加到 PATH 的选项，如果出现请务必勾选 ⚠️
+⚠️ 关注添加到 PATH 的选项，如果出现请务必勾选
 
 
 
@@ -87,7 +87,7 @@ https://github.com/Mark24Code/rime-auto-deploy/releases
 
 [https://rime.im/download/](https://rime.im/download/)
 
-自行安装， 务必 ⚠️采用默认路径安装⚠️。
+自行安装， 务必 ⚠️采用默认路径安装。
 
 ![default-path](/images/windows/04-install-rime/step1-default-path.png)
 
