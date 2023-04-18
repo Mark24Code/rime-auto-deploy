@@ -44,7 +44,11 @@ step1: 克隆到本地
 
 `git clone --depth=1 https://github.com/Mark24Code/rime-auto-deploy.git --branch v3.0.1`
 
-step2: 执行部署脚本
+step2: 进入项目目录
+
+`cd rime-auto-deploy`
+
+step3: 执行部署脚本
 
 `./installer.rb`
 
