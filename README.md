@@ -147,3 +147,16 @@ font_point: 16 # <----  修改对应皮肤的 字体大小， 推荐范围 16~22
 
 * 流程参考 Tiwtter： @lewangdev
 * 配置来源：https://github.com/iDvel/rime-ice
+
+
+#### 🍻 
+
+如果你觉得还不错可以请作者喝杯可乐 😄
+
+微信
+
+![weixin](http://ww1.sinaimg.cn/small/44894cbbgw1f70k6ctxg4j208908a3zq.jpg)
+
+支付宝
+
+![zhifubao](http://ww3.sinaimg.cn/small/44894cbbgw1f70k0qnm93j20dd0ddtak.jpg)
