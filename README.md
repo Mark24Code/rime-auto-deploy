@@ -104,6 +104,42 @@ step04: 自动追加自定义配置模板
 
 编辑完成保存文件，再手动执行 `04` 单独更新配置。
 
+
+## 3. 自定义模糊拼音
+
+编辑 `custom/rime_ice.custom.yaml` 中模糊拼音定义部分。
+
+然后保存文件，重新执行脚本，进入手动模式，单独执行 step04，重新部署 Rime。
+
+## 4. 修改皮肤
+
+* MacOS 修改 `squirrel.custom.yaml`
+* Windows 修改 `weasel.custom.yaml`
+
+
+```
+style:
+    color_scheme: <白天模式主题>
+    color_scheme_dark: <黑夜模式主题>
+    
+# 皮肤列表
+preset_color_schemes:
+  macos_light: # <---  上面的主题，可以替换为下面的主题名字
+    .....
+```
+
+然后保存文件，重新执行脚本，进入手动模式，单独执行 step04，重新部署 Rime。
+
+## 4.1 修改皮肤字体大小
+
+找到上面正在使用的皮肤名称
+
+```
+font_point: 16 # <----  修改对应皮肤的 字体大小， 推荐范围 16~22
+```
+
+然后保存文件，重新执行脚本，进入手动模式，单独执行 step04，重新部署 Rime。
+
 ### 参考&感谢：
 
 * 流程参考 Tiwtter： @lewangdev
