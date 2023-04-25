@@ -2,6 +2,7 @@
 
 require "./lib/core"
 require "./lib/config"
+require "./share/upgrade"
 
 module OSPatch
   def check_os

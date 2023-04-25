@@ -1,7 +1,6 @@
 module RimeDeploy
   class WindowsJobGroup < JobGroup
-    ConfigPath = ENV['APPDATA'] + '\\Rime'
-
+    Store.config_path = ENV["APPDATA"] + '\\Rime'
 
     def clear_screen
       system("cls")
@@ -21,10 +20,7 @@ You can download Rime from: https://rime.im/download/
         puts ""
         ChooseSession.new(
           [
-            [
-              "I have installed Rime. Let's go next.",
-              -> {}
-            ],
+            ["I have installed Rime. Let's go next.", -> {}],
             [
               "I'll quit first.After installed Rime by myself then run this program again.",
               -> { exit 0 }
@@ -40,7 +36,7 @@ You can download Rime from: https://rime.im/download/
       def call
         puts intro
         system(
-          "move #{WindowsJobGroup::ConfigPath} #{WindowsJobGroup::ConfigPath}.#{Time.now.to_i}.old"
+          "move #{Store.config_path} #{Store.config_path}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -51,7 +47,7 @@ You can download Rime from: https://rime.im/download/
       def call
         puts intro
         system(
-          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{WindowsJobGroup::ConfigPath}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Store.config_path}"
         )
         sleep 1
         return :next
@@ -61,7 +57,7 @@ You can download Rime from: https://rime.im/download/
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("copy .\\custom\\*.yaml #{WindowsJobGroup::ConfigPath}")
+        system("copy .\\custom\\*.yaml #{Store.config_path}")
         sleep 1
         return :next
       end
@@ -76,12 +72,16 @@ You can download Rime from: https://rime.im/download/
                "DEPLOY".yellow + " button."
         puts "Enjoy~"
         puts "more info:".yellow
-        puts "Config path: #{WindowsJobGroup::ConfigPath}"
+        puts "Config path: #{Store.config_path}"
         return :next
       end
     end
     self.before_jobs = [CheckInstallRimeJob]
     self.jobs = [BackupRimeConfigJob, CloneConfigJob, CopyCustomConfigJob]
     self.after_jobs = [FinishedJob]
+    self.upgrade_jobs = [
+      Upgrade::UpgradeRimeAutoDeployJob,
+      Upgrade::UpgradeRimeConfigJob
+    ]
   end
 end

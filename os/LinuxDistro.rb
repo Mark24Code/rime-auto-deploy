@@ -4,15 +4,6 @@ module RimeDeploy
     ConfigPathFcitx = "~/.config/fcitx/rime"
     ConfigPathFcitx5 = "~/.local/share/fcitx5/rime"
 
-    @config_path = nil
-    def self.config_path=(value)
-      @config_path = value
-    end
-
-    def self.config_path
-      @config_path
-    end
-
     class CheckInstallRimeJob < Job
       def call
         puts "==== Rime auto deploy ====".green
@@ -34,24 +25,15 @@ https://wiki.archlinux.org/title/Rime
           [
             [
               "ibus-rime",
-              -> do
-                LinuxDistroJobGroup.config_path =
-                  LinuxDistroJobGroup::ConfigPathIbus
-              end
+              -> { Store.config_path = LinuxDistroJobGroup::ConfigPathIbus }
             ],
             [
               "fcitx-rime",
-              -> do
-                LinuxDistroJobGroup.config_path =
-                  LinuxDistroJobGroup::ConfigPathFcitx
-              end
+              -> { Store.config_path = LinuxDistroJobGroup::ConfigPathFcitx }
             ],
             [
               "fcitx5-rime",
-              -> do
-                LinuxDistroJobGroup.config_path =
-                  LinuxDistroJobGroup::ConfigPathFcitx5
-              end
+              -> { Store.config_path = LinuxDistroJobGroup::ConfigPathFcitx5 }
             ],
             [
               "I'll quit first.After installed Rime by myself then run this program again.",
@@ -68,7 +50,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "mv #{LinuxDistroJobGroup.config_path} #{LinuxDistroJobGroup.config_path}.#{Time.now.to_i}.old"
+          "mv #{Store.config_path} #{Store.config_path}.#{Time.now.to_i}.old"
         )
         sleep 1
         return :next
@@ -79,7 +61,7 @@ https://wiki.archlinux.org/title/Rime
       def call
         puts intro
         system(
-          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{LinuxDistroJobGroup.config_path}"
+          "git clone --depth=1 #{Config::RIME_CONFIG_REPO} #{Store.config_path}"
         )
         sleep 1
         return :next
@@ -89,7 +71,7 @@ https://wiki.archlinux.org/title/Rime
     class CopyCustomConfigJob < Job
       def call
         puts intro
-        system("cp ./custom/*.yaml #{LinuxDistroJobGroup.config_path}/")
+        system("cp ./custom/*.yaml #{Store.config_path}/")
         sleep 1
         return :next
       end
@@ -104,12 +86,16 @@ https://wiki.archlinux.org/title/Rime
                "DEPLOY".yellow + " button."
         puts "Enjoy~ 🍻"
         puts "more info:".yellow
-        puts "Config path: #{LinuxDistroJobGroup.config_path}/"
+        puts "Config path: #{Store.config_path}/"
         return :next
       end
     end
     self.before_jobs = [CheckInstallRimeJob]
     self.jobs = [BackupRimeConfigJob, CloneConfigJob, CopyCustomConfigJob]
     self.after_jobs = [FinishedJob]
+    self.upgrade_jobs = [
+      Upgrade::UpgradeRimeAutoDeployJob,
+      Upgrade::UpgradeRimeConfigJob
+    ]
   end
 end

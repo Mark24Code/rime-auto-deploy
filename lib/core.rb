@@ -63,6 +63,18 @@ module RimeDeploy
     end
   end
 
+  class Store
+    @config_path = nil
+
+    def self.config_path=(value)
+      @config_path = value
+    end
+
+    def self.config_path
+      @config_path
+    end
+  end
+
   class Job
     attr_accessor :status, :intro
     def initialize
