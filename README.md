@@ -104,6 +104,31 @@ step04: 自动追加自定义配置模板
 
 编辑完成保存文件，再手动执行 `04` 单独更新配置。
 
+## 3. 升级模式（Upgrade Mode）
+
+```
+=== Rime Deploy ====
+welcome to use Rime installer.
+
+Choose mode:
+[1] Auto mode: Suitable for first-time operation.
+[2] Handle mode: Decide to execute on your own.
+[3] Upgrade mode: Suitable for upgrade exist Rime  <---- 更新模式 v3.2.0 新增
+Tips: input the index. e.g: 1; Ctrl-C exit.
+```
+
+升级模式用来解决，适用于第一次安装脚本之后，后续想单独的更新上游配置。
+
+```
+[Upgrade Mode]
+
+Choose mode:
+[1] Upgrade rime auto deploy  <---- 更新这个脚本自己，仅限于 git 下载方式
+[2] Upgrade rime config  <----  更新配置仓库，目前是 雾凇拼音，会升级到最新
+Tips: input the index. e.g: 1; Ctrl-C exit.
+```
+
+
 # 三、自定义配置
 
 ## 1. 自定义模糊拼音
@@ -122,7 +147,7 @@ step04: 自动追加自定义配置模板
 style:
     color_scheme: <白天模式主题>
     color_scheme_dark: <黑夜模式主题>
-    
+
 # 皮肤列表
 preset_color_schemes:
   macos_light: # <---  上面的主题，可以替换为下面的主题名字
