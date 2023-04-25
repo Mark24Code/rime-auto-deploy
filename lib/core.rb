@@ -100,24 +100,40 @@ module RimeDeploy
     def self.before_jobs
       @before_jobs
     end
+
     def self.before_jobs=(value)
       @before_jobs = value
+    end
+
+    def self.upgrade_jobs
+      @upgrade_jobs
+    end
+
+    def self.upgrade_jobs=(value)
+      @upgrade_jobs = value
+    end
+
+    def add_jobs_to_queue(jobs = nil)
+      jobs.each { |job| @queue << job.new } if jobs
+    end
+
+    def add_before_jobs_to_queue(jobs = nil)
+      jobs.each { |job| @before_jobs << job.new } if jobs
+    end
+
+    def add_after_jobs_to_queue(jobs = nil)
+      jobs.each { |job| @after_jobs << job.new }
     end
 
     def initialize()
       @title = "=== Rime Deploy ====".green
       @before_jobs = []
-      if self.class.before_jobs
-        self.class.before_jobs.each { |job| @before_jobs << job.new }
-      end
-
       @queue = []
-      self.class.jobs.each { |job| @queue << job.new } if self.class.jobs.each
-
       @after_jobs = []
-      self.class.after_jobs.each { |job| @after_jobs << job.new }
-
       @current_index = 0
+
+      add_before_jobs_to_queue(self.class.before_jobs)
+      add_after_jobs_to_queue(self.class.after_jobs)
     end
 
     def clear_screen
@@ -173,18 +189,23 @@ module RimeDeploy
       ChooseSession.new(
         [
           [
-            "Auto mode: Suitable for first-time operation.",
+            "Auto mode: Suitable for first-time operation.".green,
             -> { run_jobs_auto }
           ],
           [
-            "Handle mode: Decide to execute on your own.",
+            "Handle mode: Decide to execute on your own.".green,
             -> { run_jobs_handle }
+          ],
+          [
+            "Ugrade mode: Suitable for upgrade exist Rime".green,
+            -> { run_jobs_upgrade }
           ]
         ]
       ).call
     end
 
     def run_jobs_handle
+      add_jobs_to_queue(self.class.jobs)
       halt_flag =
         catch :halt do
           clear_screen
@@ -202,10 +223,12 @@ module RimeDeploy
             what_next
           end
         end
+      reset_queue
       run_jobs_handle if halt_flag == :handle_mode
     end
 
     def run_jobs_auto
+      add_jobs_to_queue(self.class.jobs)
       clear_screen
       puts "[Auto Mode]".green
       print_progress
@@ -230,8 +253,35 @@ module RimeDeploy
             end
           end
         end
-
+      reset_queue
       run_jobs_handle if halt_flag == :handle_mode
+    end
+
+    def run_jobs_upgrade
+      add_jobs_to_queue(self.class.upgrade_jobs)
+      halt_flag =
+        catch :halt do
+          clear_screen
+          puts "[Upgrade Mode]".yellow
+          upgrade_jobs = []
+          @queue.each_with_index do |job, index|
+            job_intro = job.intro.to_s.ljust(20).green
+            upgrade_jobs.push(
+              ["#{job_intro}", -> { run_job_with_info_wrapper(job) }]
+            )
+          end
+          begin
+            ChooseSession.new(upgrade_jobs).call
+          rescue RimeDeployError
+            what_next
+          end
+        end
+      reset_queue
+      run_jobs_upgrade if halt_flag == :run_jobs_upgrade
+    end
+
+    def reset_queue
+      @queue = []
     end
 
     def reset_status
