@@ -209,7 +209,7 @@ module RimeDeploy
             -> { run_jobs_handle }
           ],
           [
-            "Ugrade mode: Suitable for upgrade exist Rime".green,
+            "Upgrade mode: Suitable for upgrade exist Rime".green,
             -> { run_jobs_upgrade }
           ]
         ]
