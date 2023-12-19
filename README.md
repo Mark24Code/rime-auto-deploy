@@ -1,5 +1,7 @@
 # Rime auto deploy
 
+-- Rime输入法安装脚本，让一切更轻松。
+
 一个自用的脚本，帮助无痛快速安装、部署 Rime 输入法（中州韵、小狼毫，鼠须管）以及部署配置。
 
 * 集成 雾凇拼音配置，来源 https://dvel.me/posts/rime-ice/
