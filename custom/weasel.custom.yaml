@@ -19,7 +19,7 @@ patch:
       spacing: 5
       candidate_spacing: 20
 
-  preset_color_schemes:
+  preset_color_schemes/+:
     ms_sogou:
       name: 搜狗
       author: Mark24Code
