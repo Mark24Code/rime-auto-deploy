@@ -189,3 +189,7 @@ font_point: 16 # <----  修改对应皮肤的 字体大小， 推荐范围 16~22
 支付宝
 
 ![zhifubao](http://ww3.sinaimg.cn/small/44894cbbgw1f70k0qnm93j20dd0ddtak.jpg)
+
+
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Mark24Code/rime-auto-deploy&type=Date)](https://star-history.com/#Mark24Code/rime-auto-deploy&Date)
