@@ -6,7 +6,7 @@
 
 * 集成 雾凇拼音配置，来源 https://dvel.me/posts/rime-ice/
 * 支持 模糊拼音以及配置
-* 集成 20款 输入法皮肤, 来源 https://ssnhd.com/2022/01/11/rime-skin/ 包括微信皮肤
+* 集成 20款 输入法皮肤, 来源 https://simgv.com/2022/01/11/rime-skin/ 包括微信皮肤
 * 新增主题。支持Linux、MacOS
 
 ---
