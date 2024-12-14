@@ -26,6 +26,7 @@ patch:
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal # horizontal | vertical
+    candidate_list_layout: linear
     inline_preedit: true
     corner_radius: 10
     hilited_corner_radius: 0
